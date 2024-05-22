@@ -1,0 +1,14 @@
+Assumptions:
+- Assumption 1
+- Assumption 2
+aditional_information: some text in yaml format
+resources:
+  description: url description
+  url: https://www.example.org/
+variable:
+  longname: new_input_test_long_name
+  name: new_input_test
+  projection: null
+  sector: sector_test_folder
+  subsector: subsector_test_folder
+  units: units
