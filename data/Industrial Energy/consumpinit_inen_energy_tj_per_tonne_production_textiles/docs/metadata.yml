@@ -11,8 +11,8 @@ Source:
 
 Assumptions: 
 
-    National energy consumption per tone is assumed to be the same as the local consumtion per tonne.
-    In oder words, the ratio of national to local consumption is thete same as the rio of national to local production,
+    National energy consumption per tonne is assumed to be the same as the local consumtion per tonne.
+    In oder words, the ratio of national to local consumption is the same as the ratio of national to local production,
     therefore the national fraction TJ/Tonne remains equal.
 
     Projected values are the same as the last historical value
