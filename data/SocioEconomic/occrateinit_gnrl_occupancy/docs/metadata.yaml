@@ -1,0 +1,14 @@
+date:        2024-05-24
+variable :
+  name : occrateinit_gnrl_occupancy
+  subsector : Socioeconomic
+  longname :  average # of people per household
+  units: people per household 
+
+resources:
+    - url:   https://worldpopulationreview.com/state-rankings/average-household-size-by-state
+      descrip: data source is the world population review  
+
+aditional_information:
+      assumptions: 
+            - We use the value in 2024 and apply it to the last 20 years to have a consistent intitial value 

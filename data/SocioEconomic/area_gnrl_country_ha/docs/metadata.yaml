@@ -1,0 +1,14 @@
+date:        2024-05-24
+variable :
+  name : area_gnrl_country_ha
+  subsector : Socioeconomic
+  longname :  Total area of the  region, including land and water
+  units: hectares 
+
+resources:
+    - url:   https://www.census.gov/geographies/reference-files/2010/geo/state-area.html
+      descrip: State Area Measurements and Internal Point Coordinates
+
+aditional_information:
+      assumptions: 
+            - We convert the estimated value to hectares  assuming 1 km2 = 100 hectares 
