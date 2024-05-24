@@ -1,0 +1,19 @@
+date:        2023-01-17
+variable :
+  name : population_gnrl_urban
+  subsector : Socioeconomic
+  longname :  Share of urban population
+  units: People
+
+resources:
+    - url (historic population):   https://www.census.gov/data/tables/time-series/dec/popchange-data-text.html
+      descrip:   Historical Population Change Data from US Census Bureau 
+    - url (urbanization):   https://www.census.gov/programs-surveys/geography/guidance/geo-areas/urban-rural.html
+      descrip:   Urban , Rural areas estimates for the State of Louisiana 
+
+aditional_information:
+      assumptions: >
+            - Historic population taken from US Census Bureau 
+            - General population projection for the state of Louisiana provided by The Water Institute
+            USA historical transport data is assumed for every country.
+            - Urban and Rural Population shares are taken from the US Census Bureau. The projection assumes that by 2050 Louisiana will have the same rate of urbanization as Florida. 

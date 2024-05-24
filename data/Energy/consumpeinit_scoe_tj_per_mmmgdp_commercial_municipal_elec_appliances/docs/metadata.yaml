@@ -1,0 +1,23 @@
+Assumptions:
+- Appliances and electronics account for about 6.5% of the total electricity consumption
+  in Louisiana
+- 1 Million Kilowatthours = 3.6e+12 Joules and 1 joule = 1e-12 Tera Joules
+- For the calculations, the real GDP was used
+aditional_information: 'A useful references to understand ENERGY USE PER UNIT OF GDP
+  (ENERGY INTENSITY) is: https://www.un.org/esa/sustdev/sdissues/consumption/cpp1224m2.htm#:~:text=The%20ratio%20of%20energy%20use%20to%20GDP%20indicates%20the%20total,of%20production%20and%20consumption%20activities.
+  CT5. Commercial Sector Energy Consumption Estimates, 1960-2021, Louisiana: https://www.eia.gov/state/seds/seds-data-complete.php?sid=LA
+  Appliances and electronics account for about 6.5% of the total electricity consumption
+  in Louisiana: https://gitnux.org/average-electric-bill-in-louisiana/ Louisiana GDP:
+  https://www.eia.gov/state/seds/seds-data-complete.php?sid=LA
+
+  '
+resources:
+  description: url description
+  url: https://www.eia.gov/state/seds/seds-data-complete.php?sid=LA
+variable:
+  longname: SCOE Initial Per GDP Electric Appliances Energy Consumption
+  name: consumpeinit_scoe_tj_per_mmmgdp_commercial_municipal_elec_appliances
+  projection: null
+  sector: Energy
+  subsector: SCOE
+  units: Tera Joule per billion USD

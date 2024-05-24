@@ -144,8 +144,8 @@ class NewInput:
         self.__create_path(self.__folder_historical)
         dfh = pd.read_csv('new_input.csv', header=None) 
         dfh.columns = ['Year',self.config['name']]
-        dfh['iso_code3'] = 'LA'
-        dfh['nation'] = 'USA'
+        dfh['Iso_code3'] = 'LA'
+        dfh['Region'] = 'louisiana'
         historical_file_name = os.path.join(self.__folder_historical,self.config['name']+'.csv')
         dfh.to_csv( historical_file_name, index=False)
 
@@ -172,8 +172,8 @@ class NewInput:
         zipped = list(zip(years, new_input_projections))
 
         dfp = pd.DataFrame(zipped, columns=['Year',self.config['name']])
-        dfp['iso_code3'] = 'LA'
-        dfp['nation'] = 'USA'
+        dfp['Iso_code3'] = 'LA'
+        dfp['Region'] = 'louisiana'
 
         projected_file_name = os.path.join(self.__folder_projected,self.config['name']+'.csv')
         dfp.to_csv( projected_file_name, index=False)
