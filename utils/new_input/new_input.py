@@ -127,11 +127,12 @@ class NewInput:
         logging.debug('Creating the raw data folder')
         shutil.copytree("raw_data", self.__folder_raw_data)
         shutil.copy('new_input.csv', self.__folder_raw_data)
-        shutil.copy('projected.py', self.__folder_raw_data)
+        
 
         #creating the scripts
         logging.debug('Creating the src folder')
         shutil.copytree("src", self.__folder_src)
+        shutil.copy('projected.py', self.__folder_src)
 
         #creating the input to sisepuede folder
         logging.debug('Creating the input to sisepuede folder')
