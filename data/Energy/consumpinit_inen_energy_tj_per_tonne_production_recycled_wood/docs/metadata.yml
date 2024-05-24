@@ -9,10 +9,16 @@ Source:
 
 	-Tonne production obtained from IPPU data.
 
+    -GDP data was obtained from 
+    https://apps.bea.gov/iTable/?reqid=70&step=30&isuri=1&major_area=0&area=01000,02000,04000,05000,06000,08000,09000,10000,11000,12000,13000,15000,16000,17000,18000,19000,20000,21000,22000,23000,24000,25000,26000,27000,28000,29000,30000,31000,32000,33000,34000,35000,36000,37000,38000,39000,40000,41000,42000,44000,45000,46000,47000,48000,49000,50000,51000,53000,54000,55000,56000&year=2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,2000&tableid=512&category=1512&area_type=0&year_end=-1&classification=naics&state=0&statistic=1&yearbegin=-1&unit_of_measure=levels
+
 Assumptions: 
 
-    National energy consumption per tonne is assumed to be the same as the local consumtion per tonne.
+    National energy indusrtial consumption per tonne is assumed to be the same as the local consumtion per tonne.
     In oder words, the ratio of national to local consumption is the same as the ratio of national to local production,
     therefore the national fraction TJ/Tonne remains equal.
+
+    For 'consumpinit_inen_energy_total_pj_agriculture_and_livestock' and 'consumpinit_inen_energy_tj_per_mmm_gdp_other_product_manufacturing' national energy indusrtial consumption is scaled 
+    by the share of national to local energy consumption in Trillion BTU
 
     Projected values are the same as the last historical value
