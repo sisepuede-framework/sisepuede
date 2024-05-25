@@ -1,0 +1,17 @@
+date:        2024-05-23
+variable :
+  name : gdp_mmm_usd
+  subsector : Socioeconomic
+  longname :  GDP in 10^9 dollars
+  units: 2012 dollars
+
+resources:
+    - url (projection):   https://data.oecd.org/gdp/gdp-long-term-forecast.htm
+      descrip:   GDP projection for the state  of Louisiana in 2012 dollars 
+    - url (historic):   https://apps.bea.gov/regional/downloadzip.htm?_gl=1*1v2owm8*_ga*MjEzMjYxNDkzMy4xNzEzMjIyNTA4*_ga_J4698JNNFT*MTcxNjU3ODgwOC42LjEuMTcxNjU3OTk1My42MC4wLjA. 
+      descrip:   GDP in 2017 dollars 
+
+aditional_information:
+      assumptions: >
+            - GDP projection for the state provided by The Water Institute
+            - Historic GDP series obtained from the Bureau of Economica Analysis https://apps.bea.gov/, values in 2017 usd
