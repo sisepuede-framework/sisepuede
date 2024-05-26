@@ -1,24 +1,20 @@
 #New input creation 
 ---
-name: consumpinit_scoe_tj_per_mmmgdp_commercial_municipal_heat_energy
-longname : SCOE Initial Per GDP Heat Energy Consumption
+name: frac_scoe_heat_energy_commercial_municipal_solid_biomass
+longname : SCOE Fraction Heat Energy Demand Solid Biomass
 sector: Energy
 subsector: SCOE
-units: Tera Joule per billion USD
+units: ratio [0-1]
 projection: ~
 ...
 #Metadata
 ---
 resources:
-  url: https://www.eia.gov/state/seds/sep_sum/html/xls/use_tot_sector.xlsx
-  description: Total energy consumption by end-use sector, 1960-2021, Louisiana
-aditional_information: >
-  U.S. Energy Sources
-  https://www.energyjustice.net/energysources
-Assumptions:
-  - 1 Million Kilowatthours = 1.055056e+9 Joules and 1 joule = 1e-12 Tera Joules
-  - For the calculations, the real GDP was used
-  - According to the Energy Justice Network heating represents the 34.7% of the U.S. Energy Consumption in 2021 so this percentage was taken on each year
-
+  url: https://www.eia.gov/state/seds/data.php?incfile=/state/seds/sep_use/com/use_com_LA.html&sid=LA
+  description: Table CT5. Commercial Sector Energy Consumption Estimates, 1960-2021, Louisiana
+aditional_information: ~
+Assumptions: >
+  The following energy sources were considered to obtain this Heat Energy Demand Fraction:
+  Coal, diesel(DistillateFuel Oil), electricity,gasoline, hydrocarbon gas liquids, kerosene,naturalgas,solid biomass
 
 
