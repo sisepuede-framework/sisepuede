@@ -3,14 +3,19 @@
 Units: Tera Joules/Tonne = (TJ)/(1000kg)
 
 Source:
-	-Energy in Peta Joules obtained from: International Energy Agency, 
+	-National energy consumption per industry in Peta Joules obtained from: International Energy Agency, 
 	"IEA Energy efficiency indicators database (December 2022 edition)", 
 	available on the IEA data and statistics webpage (https://www.iea.org/data-and-statistics/data-sets)
 
-	-Tonne production obtained from IPPU data.
+    - To compute the National to local share of industrial energy we used:
+    https://www.eia.gov/state/seds/data.php?incfile=/state/seds/sep_use/ind/use_ind_US.html&sid=US and
+    https://www.eia.gov/state/seds/data.php?incfile=/state/seds/sep_use/ind/use_ind_LA.html&sid=LA
+	
+    -Tonne production obtained from IPPU data.
 
     -GDP data was obtained from 
     https://apps.bea.gov/iTable/?reqid=70&step=30&isuri=1&major_area=0&area=01000,02000,04000,05000,06000,08000,09000,10000,11000,12000,13000,15000,16000,17000,18000,19000,20000,21000,22000,23000,24000,25000,26000,27000,28000,29000,30000,31000,32000,33000,34000,35000,36000,37000,38000,39000,40000,41000,42000,44000,45000,46000,47000,48000,49000,50000,51000,53000,54000,55000,56000&year=2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,2000&tableid=512&category=1512&area_type=0&year_end=-1&classification=naics&state=0&statistic=1&yearbegin=-1&unit_of_measure=levels
+    
 
 Assumptions: 
 
