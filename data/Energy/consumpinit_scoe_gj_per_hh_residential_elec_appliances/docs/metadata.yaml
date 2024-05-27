@@ -1,0 +1,21 @@
+Assumptions: 'Appliances and electronics account for about 23% of the total electricity
+  consumption in US homes, so this value was taken as a representation for Louisiana
+  1 Million Kilowatthours = 3.6e+12 Joules and 1 joule = 1e-9 Tera Joules
+
+  '
+aditional_information: 'Appliances and electronics energy use in US Homes https://www.directenergy.com/en/learn/reduce-energy-costs/what-uses-most-electricity-in-my-home
+  Use of energy explained https://www.eia.gov/energyexplained/use-of-energy/homes.php
+  United States census bureau https://data.census.gov/table/ACSDP1Y2022.DP02?q=Louisiana%20Families%20and%20Living%20Arrangements
+
+  '
+resources:
+  description: Table CT4. Residential Sector Energy Consumption Estimates, 1960-2021,
+    Louisiana
+  url: https://www.eia.gov/state/seds/data.php?incfile=/state/seds/sep_use/res/use_res_LA.html&sid=LA
+variable:
+  longname: SCOE Initial Per Household Electric Appliances Energy Consumption
+  name: consumpinit_scoe_gj_per_hh_residential_elec_appliances
+  projection: null
+  sector: Energy
+  subsector: SCOE
+  units: Giga Joules per Household
