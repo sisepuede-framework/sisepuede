@@ -1,6 +1,6 @@
 Assumptions: 'Appliances and electronics account for about 23% of the total electricity
   consumption in US homes, so this value was taken as a representation for Louisiana
-  1 Million Kilowatthours = 3.6e+12 Joules and 1 joule = 1e-9 Tera Joules
+  1 Million Kilowatthours = 3.6e+12 Joules and 1 joule = 1e-9 Giga Joules
 
   '
 aditional_information: 'Appliances and electronics energy use in US Homes https://www.directenergy.com/en/learn/reduce-energy-costs/what-uses-most-electricity-in-my-home
