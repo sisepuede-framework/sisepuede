@@ -24,7 +24,7 @@ def projection_funct(values,pred_len):
     regsr=LinearRegression()
     regsr.fit(x,y)
     yp= regsr.predict(xp)
-    return np.round(yp.flatten().tolist(),2)
+    return [values[-1] for i in range(pred_len)]#np.round(yp.flatten().tolist(),2)
 
 
 
