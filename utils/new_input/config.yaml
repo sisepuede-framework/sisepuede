@@ -1,10 +1,10 @@
 #New input creation 
 ---
-name: consumpinit_scoe_gj_per_hh_residential_heat_energy
-longname : SCOE Initial Per Household Heat Energy Consumption
+name: frac_scoe_heat_energy_residential_solid_biomass
+longname : SCOE Fraction Heat Energy Demand Natural Solid Biomass
 sector: Energy
 subsector: SCOE
-units: Giga Joules per Household
+units: ratio [0-1]
 projection: ~
 ...
 #Metadata
@@ -12,9 +12,10 @@ projection: ~
 resources:
   url: https://www.eia.gov/state/seds/data.php?incfile=/state/seds/sep_use/res/use_res_LA.html&sid=LA
   description: Table CT4. Residential Sector Energy Consumption Estimates, 1960-2021, Louisiana
-aditional_information: >
-  United States census bureau
-  https://data.census.gov/table/ACSDP1Y2022.DP02?q=Louisiana%20Families%20and%20Living%20Arrangements
+aditional_information: ~
 Assumptions: >
-  1 Trillion Btu = 1.05505585262e+15 Joules and 1 joule = 1e-9 Giga Joules
-  Heat Energy is composed of year,coal,natural_gas,diesel,hydrocarbon_gas_liquids,kerosene,gasoline,solid_biomass
+  The following energy sources were considered to obtain this Heat Energy Demand Fraction:
+  Coal, diesel(DistillateFuel Oil), electricity,gasoline, hydrocarbon gas liquids, kerosene,naturalgas,solid biomass
+
+
+

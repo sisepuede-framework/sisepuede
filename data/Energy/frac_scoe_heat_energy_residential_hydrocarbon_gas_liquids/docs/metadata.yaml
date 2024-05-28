@@ -1,0 +1,17 @@
+Assumptions: 'The following energy sources were considered to obtain this Heat Energy
+  Demand Fraction: Coal, diesel(DistillateFuel Oil), electricity,gasoline, hydrocarbon
+  gas liquids, kerosene,naturalgas,solid biomass
+
+  '
+aditional_information: null
+resources:
+  description: Table CT4. Residential Sector Energy Consumption Estimates, 1960-2021,
+    Louisiana
+  url: https://www.eia.gov/state/seds/data.php?incfile=/state/seds/sep_use/res/use_res_LA.html&sid=LA
+variable:
+  longname: SCOE Fraction Heat Energy Demand Hydrocarbon Gas Liquids
+  name: frac_scoe_heat_energy_residential_hydrocarbon_gas_liquids
+  projection: null
+  sector: Energy
+  subsector: SCOE
+  units: ratio [0-1]
