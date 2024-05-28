@@ -1,21 +1,32 @@
 #New input creation 
 ---
-name: frac_scoe_heat_energy_residential_solid_biomass
-longname : SCOE Fraction Heat Energy Demand Natural Solid Biomass
+name: consumpinit_scoe_tj_per_mmmgdp_other_se_elec_appliances
+longname : SCOE Initial Per GDP Electric Appliances Energy Consumption
 sector: Energy
 subsector: SCOE
-units: ratio [0-1]
+units: Tera Joule per billion USD
 projection: ~
 ...
 #Metadata
 ---
 resources:
-  url: https://www.eia.gov/state/seds/data.php?incfile=/state/seds/sep_use/res/use_res_LA.html&sid=LA
-  description: Table CT4. Residential Sector Energy Consumption Estimates, 1960-2021, Louisiana
-aditional_information: ~
-Assumptions: >
-  The following energy sources were considered to obtain this Heat Energy Demand Fraction:
-  Coal, diesel(DistillateFuel Oil), electricity,gasoline, hydrocarbon gas liquids, kerosene,naturalgas,solid biomass
-
+  url: https://www.eia.gov/state/seds/seds-data-complete.php?sid=LA
+  description: State Energy Data System (SEDS) 1960-2021 (complete)
+aditional_information: >
+  Table CT6. Industrial Sector Energy Consumption Estimates, 1960-2021, Louisiana:
+  https://www.eia.gov/state/seds/data.php?incfile=/state/seds/sep_use/ind/use_ind_LA.html&sid=LA
+  Table CT7. Transportation Sector Energy Consumption Estimates, 1960-2021, Louisiana:
+  https://www.eia.gov/state/seds/data.php?incfile=/state/seds/sep_use/tra/use_tra_LA.html&sid=LA
+  Table CT8. Electric Power Sector Consumption Estimates, 1960-2021, Louisiana
+  https://www.eia.gov/state/seds/data.php?incfile=/state/seds/sep_use/eu/use_eu_LA.html&sid=LA
+  Appliances and electronics account for about 6.5% of the total electricity consumption in Louisiana:
+  https://gitnux.org/average-electric-bill-in-louisiana/
+  Louisiana GDP:
+  https://www.eia.gov/state/seds/seds-data-complete.php?sid=LA
+Assumptions:
+  - Appliances and electronics account for about 6.5% of the total electricity consumption in Louisiana
+  - 1 Million Kilowatthours = 3.6e+12 Joules and 1 joule = 1e-12 Tera Joules
+  - For the calculations, the real GDP was used
+  - Other Stationary Emissions are composed of the Industrial Sector, Transportation Sector and  Electric Power Sector
 
 
