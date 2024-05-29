@@ -1,0 +1,14 @@
+date:        2024-05-28
+variable :
+  name : frac_wali_ww
+  subsector : Circular Economy
+  longname :  liquid waste treatment fractions accross different pathways for industry, domestic urban and rural 
+  units: [1]]
+
+resources:
+    - url (types of treatment):   https://www.hydrosheds.org/products/hydrowaste
+    - url (shares accross pathways):  https://www.fao.org/aquastat/en/databases/ 
+aditional_information:
+      assumptions: >
+            - We used data for the USA from FAO and Hydrowaste data project 
+            - We used the estimated value for the USA and adjusted to louisiana based on GDP per capita
