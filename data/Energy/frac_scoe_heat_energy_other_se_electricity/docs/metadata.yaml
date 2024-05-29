@@ -1,0 +1,23 @@
+Assumptions: 'As we are using ratios and there are no specofoc info for Louisiana
+  we can use the US data Fuel fractions are given according to the following dictionaries:
+  frac_scoe_heat_energy_X_coal'':[(1,''Coal and coal products (PJ)'')] frac_scoe_heat_energy_X_diesel'':
+  [(0.8,''Oil and oil products (PJ)'')] frac_scoe_heat_energy_X_electricity'':[(0.1,''Electricity
+  (PJ)'')] frac_scoe_heat_energy_X_gasoline'':[(0.1,''Oil and oil products (PJ)'')]
+  frac_scoe_heat_energy_X_hydrocarbon_gas_liquids'':[(1,''Other sources (PJ)'')] frac_scoe_heat_energy_X_hydrogen'':[(0,''Oil
+  and oil products (PJ)'')] frac_scoe_heat_energy_x_kerosene'':[(0.1,''Oil and oil
+  products (PJ)'')] frac_scoe_heat_energy_X_natural_gas'': [(1,''Gas (PJ)''),(1,''Heat
+  (PJ)'')] frac_scoe_heat_energy_X_solid_biomass'':[(1,''Biofuels and waste (PJ)'')]
+
+  '
+aditional_information: null
+resources:
+  description: Energy in Peta Joules obtained from International Energy Agency, available
+    on the IEA data and statistics webpage
+  url: https://www.iea.org/data-and-statistics/data-product/world-energy-balances-highlights#highlights
+variable:
+  longname: SCOE Fraction Heat Energy Demand Electricity
+  name: frac_scoe_heat_energy_other_se_electricity
+  projection: null
+  sector: Energy
+  subsector: SCOE
+  units: ratio [0-1]

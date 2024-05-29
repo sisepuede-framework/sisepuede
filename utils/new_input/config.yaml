@@ -1,20 +1,28 @@
 #New input creation 
 ---
-name: consumpinit_scoe_tj_per_mmmgdp_other_se_heat_energy
-longname : SCOE Initial Per GDP Heat Energy Energy Consumption
+name: frac_scoe_heat_energy_other_se_solid_biomass
+longname : SCOE Fraction Heat Energy Solid Biomass
 sector: Energy
 subsector: SCOE
-units: Tera Joule per billion USD
+units: ratio [0-1]
 projection: ~
 ...
 #Metadata
 ---
 resources:
-  url: https://www.eia.gov/state/seds/seds-data-complete.php?sid=LA
-  description: State Energy Data System (SEDS) 1960-2021 (complete)
+  url: https://www.iea.org/data-and-statistics/data-product/world-energy-balances-highlights#highlights
+  description: Energy in Peta Joules obtained from International Energy Agency, available on the IEA data and statistics webpage
 aditional_information: ~
-Assumptions:
-  - Appliances and electronics account for about 6.5% of the total electricity consumption in Louisiana
-  - 1 Million Kilowatthours = 3.6e+12 Joules and 1 joule = 1e-12 Tera Joules
-  - For the calculations, the real GDP was used
+Assumptions: >
+  As we are using ratios and there are no specofoc info for Louisiana we can use the US data
+  Fuel fractions are given according to the following dictionaries:
+  frac_scoe_heat_energy_X_coal':[(1,'Coal and coal products (PJ)')]
+  frac_scoe_heat_energy_X_diesel': [(0.8,'Oil and oil products (PJ)')]
+  frac_scoe_heat_energy_X_electricity':[(0.1,'Electricity (PJ)')]
+  frac_scoe_heat_energy_X_gasoline':[(0.1,'Oil and oil products (PJ)')]
+  frac_scoe_heat_energy_X_hydrocarbon_gas_liquids':[(1,'Other sources (PJ)')]
+  frac_scoe_heat_energy_X_hydrogen':[(0,'Oil and oil products (PJ)')]
+  frac_scoe_heat_energy_x_kerosene':[(0.1,'Oil and oil products (PJ)')]
+  frac_scoe_heat_energy_X_natural_gas': [(1,'Gas (PJ)'),(1,'Heat (PJ)')]
+  frac_scoe_heat_energy_X_solid_biomass':[(1,'Biofuels and waste (PJ)')]
 
