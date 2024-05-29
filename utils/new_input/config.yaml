@@ -1,7 +1,7 @@
 #New input creation 
 ---
-name: consumpinit_scoe_tj_per_mmmgdp_other_se_elec_appliances
-longname : SCOE Initial Per GDP Electric Appliances Energy Consumption
+name: consumpinit_scoe_tj_per_mmmgdp_other_se_heat_energy
+longname : SCOE Initial Per GDP Heat Energy Energy Consumption
 sector: Energy
 subsector: SCOE
 units: Tera Joule per billion USD
