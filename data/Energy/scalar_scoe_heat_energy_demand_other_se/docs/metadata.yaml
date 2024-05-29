@@ -1,0 +1,16 @@
+Assumptions: 'scalar_ should generally be left = 1 it provides a mechanism to: either
+  implement a policy for demand management, or in combination with clever elasticities
+  and initial demand states, exogenously specify demand
+
+  '
+aditional_information: null
+resources:
+  description: null
+  url: https://sisepuede.readthedocs.io/en/latest/energy_non_electric.html
+variable:
+  longname: SCOE Heat Energy Demand Scalar
+  name: scalar_scoe_heat_energy_demand_other_se
+  projection: null
+  sector: Energy
+  subsector: SCOE
+  units: Tera Joule per billion USD
