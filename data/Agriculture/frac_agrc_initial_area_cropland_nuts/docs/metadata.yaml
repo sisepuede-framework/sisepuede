@@ -1,0 +1,17 @@
+
+# New input creation
+---
+name: frac_agrc_initial_area_cropland_nuts
+sector: Agriculture
+units: fractions
+projection: 0.1
+...
+# Metadata
+---
+resources:
+  url: https://croplandcros.scinet.usda.gov/
+  description: Cropland Collaborative Research Outcomes System (CROS). Explore, analyze, and download U.S. agricultural commodities from the Cropland Data Layer (CDL).
+Assumptions:
+  - double-crops are counted in both categories
+  - Aquaculture is removed
+    
