@@ -1,0 +1,13 @@
+Assumptions: Good values for validation but not necessary for the model, so assumed
+  0
+aditional_information: null
+resources:
+  description: null
+  url: null
+variable:
+  longname: Initial Industrial Production
+  name: prodinit_ippu_recycled_textiles_tonne
+  projection: null
+  sector: Energy
+  subsector: SCOE
+  units: tonnes

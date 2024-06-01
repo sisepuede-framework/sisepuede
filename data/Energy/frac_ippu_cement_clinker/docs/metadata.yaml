@@ -1,0 +1,13 @@
+Assumptions: The average clinker-to-cement ratio in the U.S. has remained constant
+  at 0.88 over the last ten years
+aditional_information: https://www.usgs.gov/centers/national-minerals-information-center/cement-statistics-and-information
+resources:
+  description: World Resources Institute
+  url: https://www.wri.org/insights/lower-carbon-blended-cement
+variable:
+  longname: Clinker Fraction of Cement
+  name: frac_ippu_cement_clinker
+  projection: null
+  sector: Energy
+  subsector: SCOE
+  units: tonnes

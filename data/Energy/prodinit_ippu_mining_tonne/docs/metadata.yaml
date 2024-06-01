@@ -1,0 +1,15 @@
+Assumptions: null
+aditional_information: 'Louisiana industrial process emissions by sector: https://www.lsu.edu/ces/publications/2021/louisiana-2021-greehouse-gas-inventory-df-rev_reduced.pdf
+  Inventory of Greenhouse Gases in Louisiana: https://www.dnr.louisiana.gov/assets/docs/energy/reports/LA_GHG_inventory_report.pdf
+
+  '
+resources:
+  description: State GHG Emissions and Removals
+  url: https://www.epa.gov/ghgemissions/state-ghg-emissions-and-removals
+variable:
+  longname: Initial Industrial Production
+  name: prodinit_ippu_mining_tonne
+  projection: null
+  sector: Energy
+  subsector: SCOE
+  units: tonnes
