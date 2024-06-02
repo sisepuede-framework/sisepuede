@@ -1,0 +1,16 @@
+date:        2024-05-22
+variable :
+  name : frac_agrc_initial_area_cropland_bevs_and_spices
+  subsector :  Agriculture
+  longname : Initial Cropland Area Proportion - bevs_and_spices
+  units: --
+
+resources:
+    - url:   https://downloads.usda.library.cornell.edu/usda-esmis/files/j3860694x/q811n776k/37722092n/2022_Agricultural_Statistics_Book.pdf
+      descrip:   UNITED STATES - DEPARTMENT OF AGRICULTURE - 
+      NATIONAL AGRICULTURAL STATISTICS SERVICE - AGRICULTURAL STATISTICS 2022 - 
+      CHAPTER V Fruits, tree nuts and horticultural specialties
+
+aditional_information:
+      assumptions: 
+            - Value 0. No data reported for Louisiana
