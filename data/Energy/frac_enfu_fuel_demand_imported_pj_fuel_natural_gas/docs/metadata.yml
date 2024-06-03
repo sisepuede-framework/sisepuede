@@ -1,0 +1,17 @@
+date:        2023-03-27
+variable :
+  name : frac_enfu_fuel_demand_imported_pj_coal
+  subsector :   Energy Fuels
+  longname :  Fraction of energy fuel demand imported. Gives imports as a fraction of domestic demand
+  units: Petajoule
+
+resources:
+    - url:   https://www.dnr.louisiana.gov/assets/TAD/newsletters/2017/2017-08_topic1.pdf
+      descrip:   LOUISIANA, AN ENERGY CONSUMING STATE. AN UPDATE USING 2015 DATA
+
+
+aditional_information:
+      assumptions: >
+            - The balance in the model used to find this is: (Production + Imports = Domestic_Demand + Exports)
+            - The crosswalk between sisepuede fields and IEA fiels is in the file correspondencias_WEB_sisepuede_revised_jsyme.py.
+            
