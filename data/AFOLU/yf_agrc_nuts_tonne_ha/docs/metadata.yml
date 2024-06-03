@@ -1,0 +1,15 @@
+date:        2024-06-02
+variable :
+  name : yf_agrc_nuts_tonne_ha
+  subsector :  Agriculture
+  longname : Crop Yield Factor - nuts
+  units: tonne/ha
+
+resources:
+    - url:   https://www.fao.org/faostat/en/#data
+      descrip:   FAO data
+
+aditional_information:
+      assumptions: 
+            - Average US yield factors 2011-2019
+            - 2020-2050 Estimated projection using linear trend with the historical averages
