@@ -1,0 +1,20 @@
+renewable_tags = {
+            "nemomod_entc_renewable_energy_tag_pp_biogas" : 0.0,
+            "nemomod_entc_renewable_energy_tag_pp_biomass" : 0.0,
+            "nemomod_entc_renewable_energy_tag_pp_coal" : 0.0,
+            "nemomod_entc_renewable_energy_tag_pp_coal_ccs" : 0.0,
+            "nemomod_entc_renewable_energy_tag_pp_gas" : 0.0,
+            "nemomod_entc_renewable_energy_tag_pp_gas_ccs" : 0.0,
+            "nemomod_entc_renewable_energy_tag_pp_geothermal" : 1.0,
+            "nemomod_entc_renewable_energy_tag_pp_hydropower" : 1.0,
+            "nemomod_entc_renewable_energy_tag_pp_nuclear" : 0.0,
+            "nemomod_entc_renewable_energy_tag_pp_ocean" : 1.0,
+            "nemomod_entc_renewable_energy_tag_pp_oil" : 0.0,
+            "nemomod_entc_renewable_energy_tag_pp_solar" : 1.0,
+            "nemomod_entc_renewable_energy_tag_pp_waste_incineration" : 0.0,
+            "nemomod_entc_renewable_energy_tag_pp_wind" : 1.0,
+            "nemomod_entc_renewable_energy_tag_st_batteries" : 0.0,
+            "nemomod_entc_renewable_energy_tag_st_compressed_air" : 0.0,
+            "nemomod_entc_renewable_energy_tag_st_flywheels" : 0.0,
+            "nemomod_entc_renewable_energy_tag_st_pumped_hydro" : 0.0
+            }

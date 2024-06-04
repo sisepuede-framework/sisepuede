@@ -1,0 +1,12 @@
+date:        2022-11-02
+variable :
+  name : nemomod_entc_renewable_energy_tag_pp_geothermal
+  subsector : Energy Technology
+  variable : NemoMod RETagTechnology
+  relevant_category : pp_geothermal
+  longname : Fraction of a technology that counts as renewable or not. 
+  units: ratio in [0,1]
+
+aditional_information:
+      assumptions: >
+            The categories geothermal, hydropower, ocean, solar and wind are taken as 1.0. Otherwise categories , 0.0
