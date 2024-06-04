@@ -8,10 +8,10 @@ variable :
   units:   decimal between 0-1
 
 resources:
-    - url:   https://data.oecd.org/transport/freight-transport.htm#indicator-chart
+    - url:   https://data.oecd.org/transport/freight-transport.htm#indicator-chart (last visited 01/June/2024)
 
 aditional_information:
 
        assumptions: 
-	
-	      -National fractions will be consider as a first approximation.
+	- National data will be taken as the local values.
+    - Projected data is taken as the last historical value

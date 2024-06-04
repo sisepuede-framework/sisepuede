@@ -1,6 +1,7 @@
-date:        2023-30-01
+
+date:        01/June/2024
 variable :
-  name : frac_trns_pkm_dem_regional_road_heavy_regional
+  name : frac_trns_pkm_dem_private_and_public_{transport} AND frac_trns_pkm_dem_regional_vars_{transport}
   subsector :  Transportation
   longname :  Fraction of p-Km transport demand 
 
@@ -9,17 +10,17 @@ variable :
 
 resources:
 
-      - url:   https://nhts.ornl.gov/person-miles
+    - url:  https://www.bts.gov/content/us-passenger-miles (last visited 01/June/2024)
 
-Last visited: 2022-07-12
 
-      descrip:   Transportation Mode Used on Trip
+      descrip:   Transportation Mode Used on Trip	
 
 aditional_information:
 
-      assumptions:
+      assumptions: 
+      - National data will be taken as the local values.
+      - Projected data is taken as the last historical value
 
-- Historical value assigned to all the countries and every year.
 
 
 
