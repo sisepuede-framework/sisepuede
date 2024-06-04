@@ -1,20 +1,20 @@
 
 date:        2023-30-01
 variable :
-  name : frac_trns_pkm_dem_private_and_public_human_powered
+  name : frac_trns_pkm_dem_private_and_public_{transport} and frac_trns_pkm_dem_regional_{transport}
   subsector :  Transportation
-  longname :  Fraction of p-Km transport demand 
+  longname :  Fraction of Passenger/Kilometer by transport demand 
 
 
   units: ratio between 0 and 1
 
 resources:
 
-    - url:  https://nhts.ornl.gov/person-miles
+    - url:  https://www.bts.gov/content/us-passenger-miles
 
-Last visited: 2022-07-12
+Last visited: 2024-06-01
 
-      descrip:   Transportation Mode Used on Trip	
+      descrip:   Historical data of USA transportation Mode in Passenger/Miles.
 
 aditional_information:
 
