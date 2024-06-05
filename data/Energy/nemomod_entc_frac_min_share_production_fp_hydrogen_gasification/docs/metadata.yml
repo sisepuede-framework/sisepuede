@@ -1,0 +1,15 @@
+date:        2022-11-02
+variable :
+  name : nemomod_entc_frac_min_share_production_fp_hydrogen_electrolysis
+  variable : NemoMod MinShareProduction
+  relevant_category : fp_hydrogen_electrolysis
+  subsector :   Energy Technology
+  longname :  According to NemoMod , the MinShareProduction variable defines, “[f]or the specified region, fuel, and year, minimum fraction of production (excluding production from storage) that must be delivered by the indicated technology.” 
+  units: Specified as fraction of production, i.e., x in [0,1]
+
+aditional_information:
+      assumptions: >
+            Set all values to 0.0
+            
+            
+          
