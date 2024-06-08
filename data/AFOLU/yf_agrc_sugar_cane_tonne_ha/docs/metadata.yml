@@ -6,10 +6,9 @@ variable :
   units: tonne/ha
 
 resources:
-    - url:   https://www.fao.org/faostat/en/#data
-      descrip:   FAO data
+    - url:   https://quickstats.nass.usda.gov/results/DED17623-95AE-309F-AC4B-6061919750BC
+      descrip:   USDA National Agricultural Statics Service
 
 aditional_information:
       assumptions: 
-            - Average US yield factors 2011-2019
-            - 2020-2050 Estimated projection using linear trend with the historical averages
+            - 2024-2050 Estimated projection using linear trend with the historical data
