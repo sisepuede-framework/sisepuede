@@ -1,15 +1,18 @@
 Assumptions: null
-aditional_information: 'Louisiana industrial process emissions by sector: https://www.lsu.edu/ces/publications/2021/louisiana-2021-greehouse-gas-inventory-df-rev_reduced.pdf
-  Inventory of Greenhouse Gases in Louisiana: https://www.dnr.louisiana.gov/assets/docs/energy/reports/LA_GHG_inventory_report.pdf
+aditional_information: 'Statistical Summary https://www.usgs.gov/centers/national-minerals-information-center/statistical-summary
+  2017 Minerals Yearbook https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/files/myb1-2017-statistical-summary.pdf
+  TABLE 5 - NONFUEL MINERAL PRODUCTION IN THE UNITED STATES, BY STATE 2019 tables-only
+  release https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fd9-wret.s3.us-west-2.amazonaws.com%2Fassets%2Fpalladium%2Fproduction%2Fs3fs-public%2Fmedia%2Ffiles%2Fmyb1-2019-stati-ert.xlsx&wdOrigin=BROWSELINK
 
   '
-resources:
-  description: State GHG Emissions and Removals
-  url: https://www.epa.gov/ghgemissions/state-ghg-emissions-and-removals
+resources: 'url: https://www.usgs.gov/centers/national-minerals-information-center/mineral-industry-louisiana
+  description: The Mineral Industry of Louisiana
+
+  '
 variable:
   longname: Initial Industrial Production
   name: prodinit_ippu_mining_tonne
   projection: null
-  sector: Energy
-  subsector: SCOE
+  sector: IPPU
+  subsector: null
   units: tonnes

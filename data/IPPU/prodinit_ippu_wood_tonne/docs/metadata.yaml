@@ -1,15 +1,13 @@
-Assumptions: null
-aditional_information: 'Louisiana industrial process emissions by sector: https://www.lsu.edu/ces/publications/2021/louisiana-2021-greehouse-gas-inventory-df-rev_reduced.pdf
-  Inventory of Greenhouse Gases in Louisiana: https://www.dnr.louisiana.gov/assets/docs/energy/reports/LA_GHG_inventory_report.pdf
-
-  '
+Assumptions: The value for 2021 was replicated for all the years 1 cubic foot is equal
+  to 0.027864 metric tons (tonnes) 657,954 thousand cubic feet = 18,333,230.256 tonnes
+aditional_information: null
 resources:
-  description: State GHG Emissions and Removals
-  url: https://www.epa.gov/ghgemissions/state-ghg-emissions-and-removals
+  description: Timber Product Output and Use Louisiana 2021
+  url: https://www.srs.fs.usda.gov/pubs/ru/ru_fs425.pdf
 variable:
   longname: Initial Industrial Production
   name: prodinit_ippu_wood_tonne
   projection: null
-  sector: Energy
-  subsector: SCOE
+  sector: IPPU
+  subsector: null
   units: tonnes
