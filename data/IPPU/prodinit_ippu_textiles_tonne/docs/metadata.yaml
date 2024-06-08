@@ -1,15 +1,21 @@
-Assumptions: null
-aditional_information: 'Louisiana industrial process emissions by sector: https://www.lsu.edu/ces/publications/2021/louisiana-2021-greehouse-gas-inventory-df-rev_reduced.pdf
-  Inventory of Greenhouse Gases in Louisiana: https://www.dnr.louisiana.gov/assets/docs/energy/reports/LA_GHG_inventory_report.pdf
+Assumptions: 'The U.S. textile market size was estimated at USD 251.79 billion The
+  Louisian textile market size was estimated at USD 59.6 million Then the Louisian
+  textile market size is the 0.02 % of the US textile market size The Market size
+  is directly related to production
+
+  '
+aditional_information: 'Textile Mills in Louisiana - current trends and industry outlook
+  (2019-2029) https://www.ibisworld.com/us/industry/louisiana/textile-mills/25394/
+  U.S. Textile Market Size https://www.grandviewresearch.com/industry-analysis/us-textile-market-report#:~:text=The%20U.S.%20textile%20market%20size%20was%20estimated%20at,increasingly%20higher%20importance%20in%20the%20lifestyle%20of%20consumers
 
   '
 resources:
-  description: State GHG Emissions and Removals
-  url: https://www.epa.gov/ghgemissions/state-ghg-emissions-and-removals
+  description: Global  Initial Industrial Production
+  url: https://github.com/milocortes/sisepuede_data/blob/main/IPPU/prodinit_ippu_textiles_tonne/input_to_sisepuede/historical/prodinit_ippu_textiles_tonne.csv
 variable:
   longname: Initial Industrial Production
   name: prodinit_ippu_textiles_tonne
   projection: null
-  sector: Energy
-  subsector: SCOE
+  sector: IPPU
+  subsector: null
   units: tonnes
