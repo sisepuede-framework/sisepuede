@@ -1,15 +1,19 @@
-Assumptions: null
-aditional_information: 'Louisiana industrial process emissions by sector: https://www.lsu.edu/ces/publications/2021/louisiana-2021-greehouse-gas-inventory-df-rev_reduced.pdf
-  Inventory of Greenhouse Gases in Louisiana: https://www.dnr.louisiana.gov/assets/docs/energy/reports/LA_GHG_inventory_report.pdf
+Assumptions: 'The U.S. glass market size was estimated at USD 31 billion The Louisian
+  glass market size was estimated at USD 366 million Then the Louisian market size
+  is the 1.2 % of the US market size The Market size is directly related to production
+
+  '
+aditional_information: 'Glass Product Manufacturing in the US https://www.ibisworld.com/industry-statistics/market-size/glass-product-manufacturing-united-states/#:~:text=What%20is%20the%20market%20size%20of%20the%20Glass,is%20%2432.3bn%20an%20increase%20of%204.16%25%20from%202023
+  Glass Product Manufacturing in Louisiana  https://www.ibisworld.com/us/industry/louisiana/glass-product-manufacturing/25448/
 
   '
 resources:
-  description: State GHG Emissions and Removals
-  url: https://www.epa.gov/ghgemissions/state-ghg-emissions-and-removals
+  description: Global  Initial Industrial Production
+  url: https://github.com/milocortes/sisepuede_data/tree/main/IPPU/prodinit_ippu_glass_tonne/input_to_sisepuede/historical
 variable:
   longname: Initial Industrial Production
   name: prodinit_ippu_glass_tonne
   projection: null
-  sector: Energy
-  subsector: SCOE
+  sector: IPPU
+  subsector: null
   units: tonnes

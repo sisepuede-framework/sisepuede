@@ -1,15 +1,20 @@
-Assumptions: null
-aditional_information: 'Louisiana industrial process emissions by sector: https://www.lsu.edu/ces/publications/2021/louisiana-2021-greehouse-gas-inventory-df-rev_reduced.pdf
-  Inventory of Greenhouse Gases in Louisiana: https://www.dnr.louisiana.gov/assets/docs/energy/reports/LA_GHG_inventory_report.pdf
+Assumptions: 'The U.S. plastic market size was estimated at USD 103.7 billion The
+  Louisian plastic market size was estimated at USD 22.4 billion Then the Louisian
+  market size is the 21.6 % of the US market size The Market size is directly related
+  to production
+
+  '
+aditional_information: 'Plastic & Resin Manufacturing in Louisiana https://www.ibisworld.com/us/industry/louisiana/plastic-resin-manufacturing/25425/
+  Plastic & Resin Manufacturing in the US  https://www.ibisworld.com/industry-statistics/market-size/plastic-resin-manufacturing-united-states/#:~:text=IBISWorld%27s%20statistic%20shows%20that%20as%20of%202024%20the,is%20%24103.9bn%20an%20increase%20of%200.25%25%20from%202023
 
   '
 resources:
-  description: State GHG Emissions and Removals
-  url: https://www.epa.gov/ghgemissions/state-ghg-emissions-and-removals
+  description: Global  Initial Industrial Production
+  url: https://github.com/milocortes/sisepuede_data/blob/main/IPPU/prodinit_ippu_plastic_tonne/input_to_sisepuede/historical/prodinit_ippu_plastic_tonne.csv
 variable:
   longname: Initial Industrial Production
   name: prodinit_ippu_plastic_tonne
   projection: null
-  sector: Energy
-  subsector: SCOE
+  sector: IPPU
+  subsector: null
   units: tonnes

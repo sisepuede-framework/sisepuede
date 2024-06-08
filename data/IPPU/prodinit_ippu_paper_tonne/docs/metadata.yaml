@@ -1,15 +1,19 @@
-Assumptions: null
-aditional_information: 'Louisiana industrial process emissions by sector: https://www.lsu.edu/ces/publications/2021/louisiana-2021-greehouse-gas-inventory-df-rev_reduced.pdf
-  Inventory of Greenhouse Gases in Louisiana: https://www.dnr.louisiana.gov/assets/docs/energy/reports/LA_GHG_inventory_report.pdf
+Assumptions: 'The U.S. paper market size was estimated at USD 7 billion The Louisian
+  paper market size was estimated at USD 704.3 million Then the Louisian market size
+  is the 10 % of the US market size The Market size is directly related to production
+
+  '
+aditional_information: 'Paper Mills in Louisiana https://www.ibisworld.com/us/industry/louisiana/paper-mills/25408/
+  Paper Product Manufacturing Industry in the US  https://www.ibisworld.com/united-states/market-research-reports/paper-product-manufacturing-industry/
 
   '
 resources:
-  description: State GHG Emissions and Removals
-  url: https://www.epa.gov/ghgemissions/state-ghg-emissions-and-removals
+  description: Global  Initial Industrial Production
+  url: https://github.com/milocortes/sisepuede_data/blob/main/IPPU/prodinit_ippu_paper_tonne/input_to_sisepuede/historical/prodinit_ippu_paper_tonne.csv
 variable:
   longname: Initial Industrial Production
   name: prodinit_ippu_paper_tonne
   projection: null
-  sector: Energy
-  subsector: SCOE
+  sector: IPPU
+  subsector: null
   units: tonnes
