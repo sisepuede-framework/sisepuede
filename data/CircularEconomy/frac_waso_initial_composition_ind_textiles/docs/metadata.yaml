@@ -1,0 +1,13 @@
+date:        2024-05-28
+variable :
+  name : frac_waso_intial_composition
+  subsector : Circular Economy
+  longname :  waste generater per type
+  units: [1]]
+
+resources:
+    - url:   https://datacatalog.worldbank.org/search/dataset/0039597
+aditional_information:
+      assumptions: >
+            - We used data for the USA from World Bank's "What a Waste" database 
+            - We used the estimated value for the USA and adjusted to louisiana based on GDP per capita

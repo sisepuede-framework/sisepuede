@@ -11,8 +11,8 @@ DataIn <- read.csv(paste0(root,raw_data,"socioeconomic_chars_global.csv"))
 #================================================================================================
 #Read FAO database 
 #================================================================================================
-fao_data <- read.csv(paste0(root,raw_data,"AQUASTAT Statistics Bulk Download (EN).csv"))
-
+#fao_data <- read.csv(paste0(root,raw_data,"AQUASTAT Statistics Bulk Download (EN).csv"))
+fao_data <- read.csv(r'(C:\Users\edmun\Downloads\AQUASTAT Statistics Bulk Download (EN)\AQUASTAT Statistics Bulk Download (EN).csv)')
 #indicate variables of interest 
 target_vars <- c(
                  "Collected municipal wastewater",
