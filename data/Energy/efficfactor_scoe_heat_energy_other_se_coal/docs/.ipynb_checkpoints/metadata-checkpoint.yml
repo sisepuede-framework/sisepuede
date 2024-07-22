@@ -1,0 +1,11 @@
+10/07/2024
+
+Units: Decimal number
+
+Source:
+	- Kaczmarczyk, M. (2024). Building energy characteristic evaluation in terms of energy efficiency and ecology. Energy Conversion and Management, 306, 118284. https://doi.org/10.1016/j.enconman.2024.118284
+
+Assumptions: 
+
+     - As stated in https://doi.org/10.1016/j.enconman.2024.118284, Table 4 (last visited 10/July/2024) the coal efficiency for Central Heating is
+     0.82. This will be the historical and projected value.
