@@ -1,0 +1,74 @@
+date:        2024-07-24
+variable :
+  name : exports_agrc_nuts_tonne
+  subsector :  Agriculture
+  longname : Agriculture Equivalent Exports
+  units: tonne
+
+resources:
+    - url:   https://usatrade.census.gov/
+      descrip:   State Exports by HS Commodities
+
+aditional_information:
+      assumptions: 
+            Commodity	- relevant_category
+            0601 Bulbs, Tubers Etc; Chicory Plants & Roots Nesoi	- tubers
+            0602 Live Plants Nesoi, Cuttings Etc.; Mushroom Spawn	- vegetables_and_vines
+            0603 Cut Flowers & Buds For Bouquets Etc., Prepared	- herbs_and_other_perennial_crops
+            0604 Foliage, Grasses Etc For Bouquets Etc, Prepared	- herbs_and_other_perennial_crops
+            0701 Potatoes (except Sweet Potatoes), Fresh Or Chilled	- tubers
+            0703 Onions, Shallots, Garlic, Leeks Etc, Fr Or Chilled	- vegetables_and_vines
+            0707 Cucumbers And Gherkins, Fresh Or Chilled	- vegetables_and_vines
+            0708 Leguminous Vegetables, Shelled Or Not, Fr Or Chill	- pulses
+            0709 Vegetables Nesoi, Fresh Or Chilled	- vegetables_and_vines
+            0710 Vegetables (raw Or Cooked By Steam Etc), Frozen	- vegetables_and_vines
+            0711 Vegetables Provis Preserved Unsuitable For Consum	- vegetables_and_vines
+            0712 Vegetables, Dried, Whole, Cut Etc., No Added Prep	- vegetables_and_vines
+            0713 Leguminous Vegetables, Dried Shelled	- pulses
+            0714 Cassava, Arrowroot Etc, Fresh Or Dry; Sago Pith	- tubers
+            0802 Nuts Nesoi, Fresh Or Dried	- nuts
+            0804 Dates, Figs, Pineapples, Avocados Etc, Fr Or Dried	- fruits
+            0805 Citrus Fruit, Fresh Or Dried	- fruits
+            0806 Grapes, Fresh Or Dried	- fruits
+            0807 Melons And Papayas, Fresh	- fruits
+            0808 Apples, Pears And Quinces, Fresh	- fruits
+            0809 Apricots, Cherries, Peaches, Plums & Sloes, Fresh	- fruits
+            0811 Fruit & Nuts (raw Or Cooked By Steam Etc), Frozen	- fruits
+            0813 Fruit Dried Nesoi; Mixtures Of Nuts Or Dried Fruit	- fruits
+            0814 Peel, Citrus Or Melon, Frsh/frzn/dried/provsl Pres	- fruits
+            0901 Coffee; Coffee Husks Etc; Substitutes With Coffee	- bevs_and_spices
+            0902 Tea, Whether Or Not Flavored	- bevs_and_spices
+            0903 Mate	- bevs_and_spices
+            0904 Pepper, Genus Piper; Genus Capsicum Or Pimenta	- bevs_and_spices
+            0905 Vanilla	- bevs_and_spices
+            0909 Seeds Anise Badian Fennl Coriandr Etc; Junpr Berrs	- bevs_and_spices
+            0910 Ginger, Saffron, Tumeric, Thyme, Bay Leaves Etc.	- bevs_and_spices
+            1001 Wheat And Meslin	- cereals
+            1003 Barley	- cereals
+            1005 Corn (maize)	- cereals
+            1006 Rice	- rice
+            1007 Grain Sorghum	- cereals
+            1008 Buckwheat, Millet And Canary Seeds; Other Cereals	- cereals
+            1101 Wheat Or Meslin Flour	- cereals
+            1102 Cereal Flours, Except Of Wheat Or Of Meslin	- cereals
+            1103 Cereal Groats, Meal And Pellets	- cereals
+            1104 Cereal Grains, Worked Etc Nesoi; Cereal Germs, Wrk	- cereals
+            1105 Flour, Meal Flakes, Granules & Pellets Of Potatoes	- tubers
+            1106 Flour & Meal Of Dry, Legum Vegs, Sago, Fruit Etc.	- tubers
+            1107 Malt, Whether Or Not Roasted	- cereals
+            1108 Starches; Inulin	- cereals
+            1109 Wheat Gluten, Whether Or Not Dried	- cereals
+            1201 Soybeans, Whether Or Not Broken	- pulses
+            1202 Peanuts (ground-nuts), Raw	- nuts
+            1203 Copra	- nuts
+            1206 Sunflower Seeds, Whether Or Not Broken	- nuts
+            1207 Oil Seeds & Oleaginous Fruits Nesoi, Broken Or Not	- nuts
+            1208 Flour & Meal Of Oil Seed & Olea Fruit (no Mustard)	- nuts
+            1209 Seeds, Fruit And Spores, For Sowing	- herbs_and_other_perennial_crops
+            1210 Hop Cones, Fresh Or Dried; Lupulin	- herbs_and_other_perennial_crops
+            1211 Plants Etc For Pharmacy, Perfume, Insecticides Etc	- herbs_and_other_perennial_crops
+            1212 Locust Beans, Seaweed, S Beet & Cane; Fr Pits Etc.	- herbs_and_other_perennial_crops
+            1213 Cereal Straw & Husks Unprep W/n Chop Etc Or Pellet	- cereals
+            1214 Rutabagas, Hay, Clover & Other Forage Products	- tubers
+
+
