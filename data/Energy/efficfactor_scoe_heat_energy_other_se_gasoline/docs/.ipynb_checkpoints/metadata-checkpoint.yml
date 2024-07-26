@@ -1,0 +1,9 @@
+10/07/2024
+
+Units: Decimal number
+
+Source:
+	- Barma, M. C., Saidur, R., Rahman, S. M. A., Allouhi, A., Akash, B. A., & Sait, S. M. (2017). A review on boilers energy use, energy savings, and emissions reductions. Renewable and Sustainable Energy Reviews, 79, 970-983. https://doi.org/10.1016/j.rser.2017.05.187
+
+Assumptions: 
+    - As stated in https://doi.org/10.1016/j.rser.2017.05.187 (last visited 10/July/2024): "the typical boiler efficiency is in the range of 75–90%". We will use the mid value, 82.5%, as the historical and projected value.
