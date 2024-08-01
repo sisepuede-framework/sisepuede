@@ -1,0 +1,15 @@
+date:        2024-07-31
+variable :
+  name : frac_lvst_mm_chickens_dry_lot
+  subsector :  Livestock
+  longname : Livestock Manure Management Fraction
+  units: 
+
+resources:
+    - url:   
+      descrip:   
+
+aditional_information:
+      assumptions: 
+            US averages
+
