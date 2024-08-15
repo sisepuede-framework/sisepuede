@@ -1,0 +1,14 @@
+date:        2024-08-15
+variable :
+  name : frac_agrc_agriculture_production_lost
+  subsector :  Agriculture
+  longname : Fraction of Food Produced Lost Before Consumption
+  units: -- 
+
+resources:
+    - url: https://www.un.org/en/observances/end-food-waste-day
+      descrip: Article: Solutions to Slash Food Waste and Loss
+
+aditional_information:
+      assumptions: Globally, an estimated 19 percent of total global food production is wasted in households, in the food service and in retail all together. Consider this value for Louisiana.
+

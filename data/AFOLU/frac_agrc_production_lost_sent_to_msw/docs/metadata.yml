@@ -1,0 +1,14 @@
+date:        2024-08-15
+variable :
+  name : frac_agrc_production_lost_sent_to_msw
+  subsector :  Agriculture
+  longname : Fraction of Food Loss Sent to Municipal Solid Waste
+  units: -- 
+
+resources:
+    - url: https://www.sciencedirect.com/science/article/pii/S0306919212000693
+      descrip: Article: Total and per capita value of food loss in the United States
+
+aditional_information:
+      assumptions: According to the US Environmental Protection Agency (EPA), food waste accounted for almost 31 million mt (14%) of the roughly 220 million mt of municipal solid waste in the United States in 2008. Consider this value for Louisiana.
+

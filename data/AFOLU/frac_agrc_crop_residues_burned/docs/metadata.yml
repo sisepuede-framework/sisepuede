@@ -1,0 +1,14 @@
+date:        2024-08-15
+variable :
+  name : frac_agrc_crop_residues_burned
+  subsector :  Agriculture
+  longname : Fraction of Residues Burned
+  units: -- 
+
+resources:
+    - url: https://www.sciencedirect.com/science/article/pii/S0048969709006342?ref=pdf_download&fr=RR-2&rr=8b37db2e5c11c300
+      descrip: Article: The spatial and temporal distribution of crop residue burning in the contiguous United States
+
+aditional_information:
+      assumptions: Distribution of annual cropland burned area statistics for each state in the CONUS, average percentage of harvested agricultural areas burned in Louisiana.
+

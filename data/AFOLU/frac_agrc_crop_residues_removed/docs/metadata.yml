@@ -1,0 +1,14 @@
+date:        2024-08-15
+variable :
+  name : frac_agrc_crop_residues_removed
+  subsector :  Agriculture
+  longname : Fraction of Residues Removed
+  units: -- 
+
+resources:
+    - url: https://www.sciencedirect.com/science/article/pii/S0048969709006342?ref=pdf_download&fr=RR-2&rr=8b37db2e5c11c300
+      descrip: Article: The spatial and temporal distribution of crop residue burning in the contiguous United States
+
+aditional_information:
+      assumptions: Complementary data on crop residues burned: if they are not burned, they are removed.
+
