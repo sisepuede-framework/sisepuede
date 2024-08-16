@@ -1,0 +1,28 @@
+date:        2024-08-15
+variable :
+  name : nemomod_entc_reserve_margin_tag_technology_pp_biomass
+  subsector :   Energy Technology
+  longname :  Fraction of technology’s capacity that is available to reserve margin. Biogas 
+  units: Multiplier that defines the level of reserve production capacity for a region, fuel, and year - i.e., capacity beyond what is needed to meet production requirements. 
+
+resources:
+    wri:
+      - url:   https://datasets.wri.org/dataset/globalpowerplantdatabase
+        descrip:   World Resources Institute
+    lousiana_roadmap:
+      - url: https://unepccc.org/wp-content/uploads/sites/3/2016/03/e13b.pdf
+        descrip: Lousiana's 2030 Energy Efficiency Roadmap 
+
+aditional_information:
+      assumptions: >
+          In order to convert to GW (Gigavatio) to MW (Megavatio), multiply the value by factor 1000.
+          The reserve margin is calculated following smith (2010): 
+          
+                      (1)                               (2)                   (3) = (1)-(2)        (4) = (3)/(2)     
+          Total Generating Capacity (MW)     Peak Electrical Demand (MW)      Reserves (MW)      Reserve Margin (%)
+                     12,000                            10,000                     2,000                20
+
+          For the Peak Electrical Demand, we used the Lousiana's 2030 Energy Efficiency Roadmap report. According to the report, the
+          peak demand estimated will grow at an average annual rate of 0.8% from 14,283 MW in 2010, to 15,351 MW in 2020 and
+          16,830 MW in 2030. 
+          
