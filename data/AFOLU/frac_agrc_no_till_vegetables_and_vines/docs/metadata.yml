@@ -1,0 +1,15 @@
+date:        2024-08-23
+variable :
+  name : frac_agrc_no_till_vegetables_and_vines
+  subsector :  Agriculture
+  longname : No Till Crop Fraction
+  units: 
+
+resources:
+    - url:   
+      descrip:   
+
+aditional_information:
+      assumptions: 
+            US averages
+
