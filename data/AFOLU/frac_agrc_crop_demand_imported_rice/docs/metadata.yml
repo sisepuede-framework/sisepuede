@@ -1,0 +1,42 @@
+date:        2024-08-27
+variable :
+  name : frac_agrc_crop_demand_imported_rice
+  subsector :  Agriculture
+  longname : Fraction of Agriculture Demand Imported
+  units: 
+
+resources:
+    - url:   https://apps.fas.usda.gov/psdonline/app/index.html#/app/downloads 
+      descrip:   US National Information of All Commodities (Production, Exports, Imports) - PSD Data Sets / Projections with linear regression 
+
+aditional_information:
+      assumptions: 
+            Commodity	- relevant_category
+            0577400	Almonds, Shelled Basis - nuts
+            0574000	Apples, Fresh - fruits
+            0430000	Barley - cereals
+            0579305	Cherries (Sweet&Sour), Fresh - fruits
+            0711100	Coffee, Green - bevs_and_spices
+            0440000	Corn - cereals
+            2631000	Cotton - fibers
+            0572220	Grapefruit, Fresh -fruits
+            0575100	Grapes, Fresh Table - fruits
+            0572120	Lemons/Limes, Fresh - fruits
+            0452000	Oats - cereals
+            2223000	Oilseed, Cottonseed - fibers
+            2221000	Oilseed, Peanut - nuts
+            2226000	Oilseed, Rapeseed - other_annual
+            2222000	Oilseed, Soybean - other_annual
+            2224000	Oilseed, Sunflowerseed - other_annual
+            0571120	Oranges, Fresh - fruits
+            0579309	Peaches & Nectarines, Fresh - fruits
+            0579220	Pears, Fresh - fruits
+            0577907	Pistachios, Inshell Basis - nuts
+            0422110	Rice, Milled - rice
+            0451000	Rye - cereals
+            0459200	Sorghum - cereals
+            0571220	Tangerines/Mandarins, Fresh - fruits
+            0577901	Walnuts, Inshell Basis - nuts
+            0410000	Wheat - cereals
+
+
