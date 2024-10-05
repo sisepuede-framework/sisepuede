@@ -1,0 +1,37 @@
+date:        2024-10-04
+variable :
+  name : cost_enfu_fuel_oil_usd_per_m3
+  subsector :  Energy Fuels
+  longname : Fuel Price
+  units: Volumetric ($/m3), Thermal ($/mmbtu), Gravimetric ($/tonne)
+
+resources:
+    - descrip: Most fuels and growth rates
+      source: Energy Information Administration, 2020
+      url: http://www.eia.gov/forecasts/aeo/excel/aeotab_3.xlsx
+      details: Table 3 (and Table 2 for industrial coal consumption fractions by coal type)
+    - descrip: Biomass
+      source: Energy Information Administration, 2020
+      url: https://www.eia.gov/state/seds/archive/seper2018.pdf
+      details: Tables ET3, ET4, ET5, and ET7
+    - descrip: Biofuel Diesel
+      source: DOE Alternative Fuels Data Center, 2018
+      url: https://afdc.energy.gov/files/u/publication/alternative_fuel_price_report_jan_2018.pdf
+      details: Page 4, Table 3
+    - descrip: Heat
+      source: Euroheat & Power, n/a
+      url: http://www.euroheat.org/United-States-156.aspx
+      details: "Average District Heating price in 2011" (using "Steam" rather than "Water" because most U.S. district heating systems use steam)
+    - descrip: Hydrogen Start Year Costs
+      source: California Energy Commission and California Air Resources Board, 2015
+      url: https://ww2.energy.ca.gov/2015publications/CEC-600-2015-016/CEC-600-2015-016.pdf
+      details: Page 57, Table 12
+    - descrip: Lignite and Non-lignite Price Multipliers
+      source: Energy Information Administration, 2019
+      url: https://www.eia.gov/electricity/data/eia923/
+      details: Year 2018, Tab 5
+
+aditional_information:
+      assumptions: 
+            
+
