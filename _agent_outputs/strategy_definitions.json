@@ -1,0 +1,175 @@
+{
+  "strategy_0": {
+    "name": "Baseline",
+    "description": "No transformations applied. Raw input data with baseline assumptions.",
+    "transformers": []
+  },
+  "strategy_1": {
+    "name": "Unconditional NDC",
+    "description": "Libya unconditional NDC commitments: gas flaring recovery, electricity demand efficiency, power generation efficiency, cement energy, transport efficiency, and partial tree planting (~10% of 100M tree target).",
+    "transformers": [
+      {
+        "transformer_code": "TFR:FGTV:DEC_LEAKS",
+        "scalar": 1.0,
+        "ndc_axis": 1,
+        "notes": "Gas flaring recovery: reduce fugitive leaks from oil/gas operations. Libya's NDC targets flaring reduction from petroleum sector."
+      },
+      {
+        "transformer_code": "TFR:FGTV:INC_FLARE",
+        "scalar": 1.0,
+        "ndc_axis": 1,
+        "notes": "Gas flaring recovery complement: maximize flaring of otherwise vented gas as transition measure, reducing raw CH4 venting."
+      },
+      {
+        "transformer_code": "TFR:SCOE:INC_EFFICIENCY_APPLIANCE",
+        "scalar": 1.0,
+        "ndc_axis": 3,
+        "notes": "Electricity demand efficiency: improve appliance efficiency in buildings (residential and commercial/municipal)."
+      },
+      {
+        "transformer_code": "TFR:ENTC:DEC_LOSSES",
+        "scalar": 1.0,
+        "ndc_axis": 5,
+        "notes": "Power generation efficiency: reduce transmission losses by upgrading electrical infrastructure."
+      },
+      {
+        "transformer_code": "TFR:INEN:INC_EFFICIENCY_ENERGY",
+        "scalar": 1.0,
+        "ndc_axis": 8,
+        "notes": "Cement energy efficiency: maximize industrial energy efficiency; applied to cement and iron/steel industries in unconditional scenario."
+      },
+      {
+        "transformer_code": "TFR:TRNS:INC_EFFICIENCY_NON_ELECTRIC",
+        "scalar": 1.0,
+        "ndc_axis": 14,
+        "notes": "Transport energy efficiency: increase non-electric vehicle efficiency (dominant mode in Libya)."
+      },
+      {
+        "transformer_code": "TFR:LNDU:INC_REFORESTATION",
+        "scalar": 0.1,
+        "ndc_axis": 2,
+        "notes": "Partial tree planting: unconditional portion ~10M trees out of 100M target. Scalar 0.1 applied to full reforestation transformation magnitude."
+      }
+    ]
+  },
+  "strategy_2": {
+    "name": "Conditional NDC",
+    "description": "Libya conditional NDC commitments (requires international support): all of Strategy 1 PLUS full renewables deployment, HFC reduction, full tree planting (100M trees), iron & steel efficiency, thermal demand reduction, solid waste, wastewater, and agriculture interventions.",
+    "transformers": [
+      {
+        "transformer_code": "TFR:FGTV:DEC_LEAKS",
+        "scalar": 1.0,
+        "ndc_axis": 1,
+        "notes": "Gas flaring recovery: reduce fugitive leaks from oil/gas operations."
+      },
+      {
+        "transformer_code": "TFR:FGTV:INC_FLARE",
+        "scalar": 1.0,
+        "ndc_axis": 1,
+        "notes": "Gas flaring recovery complement: maximize flaring of vented gas."
+      },
+      {
+        "transformer_code": "TFR:LNDU:INC_REFORESTATION",
+        "scalar": 1.0,
+        "ndc_axis": 2,
+        "notes": "Full tree planting: 100M trees target. Full magnitude of reforestation transformer."
+      },
+      {
+        "transformer_code": "TFR:SCOE:INC_EFFICIENCY_APPLIANCE",
+        "scalar": 1.0,
+        "ndc_axis": 3,
+        "notes": "Electricity demand efficiency: improve appliance efficiency in buildings."
+      },
+      {
+        "transformer_code": "TFR:SCOE:DEC_DEMAND_HEAT",
+        "scalar": 1.0,
+        "ndc_axis": 4,
+        "notes": "Thermal energy demand reduction: reduce heat demand in buildings by improving building shell."
+      },
+      {
+        "transformer_code": "TFR:ENTC:DEC_LOSSES",
+        "scalar": 1.0,
+        "ndc_axis": 5,
+        "notes": "Power generation efficiency: reduce transmission losses."
+      },
+      {
+        "transformer_code": "TFR:ENTC:TARGET_RENEWABLE_ELEC",
+        "scalar": 1.0,
+        "ndc_axis": 6,
+        "notes": "Renewables in power generation: target 95% renewable electricity by final time period."
+      },
+      {
+        "transformer_code": "TFR:IPPU:DEC_CLINKER",
+        "scalar": 1.0,
+        "ndc_axis": 7,
+        "notes": "Cement processes: reduce clinker ratio in cement production (process emissions)."
+      },
+      {
+        "transformer_code": "TFR:INEN:INC_EFFICIENCY_ENERGY",
+        "scalar": 1.0,
+        "ndc_axis": 8,
+        "notes": "Cement energy: maximize industrial energy efficiency for cement sector."
+      },
+      {
+        "transformer_code": "TFR:INEN:INC_EFFICIENCY_PRODUCTION",
+        "scalar": 1.0,
+        "ndc_axis": 9,
+        "notes": "Iron & steel: maximize industrial production efficiency (kJ/tonne improvements)."
+      },
+      {
+        "transformer_code": "TFR:IPPU:DEC_HFCS",
+        "scalar": 1.0,
+        "ndc_axis": 10,
+        "notes": "HFCs: reduce HFC emission factors; covers refrigerant phase-down per Kigali Amendment."
+      },
+      {
+        "transformer_code": "TFR:WASO:INC_RECYCLING",
+        "scalar": 1.0,
+        "ndc_axis": 11,
+        "notes": "Solid waste: increase recycling fraction to reduce landfill CH4."
+      },
+      {
+        "transformer_code": "TFR:WASO:INC_CAPTURE_BIOGAS",
+        "scalar": 1.0,
+        "ndc_axis": 11,
+        "notes": "Solid waste: increase biogas capture at landfills and anaerobic digesters."
+      },
+      {
+        "transformer_code": "TFR:WALI:INC_TREATMENT_URBAN",
+        "scalar": 1.0,
+        "ndc_axis": 12,
+        "notes": "Wastewater: improved urban wastewater treatment pathways."
+      },
+      {
+        "transformer_code": "TFR:TRWW:INC_CAPTURE_BIOGAS",
+        "scalar": 1.0,
+        "ndc_axis": 12,
+        "notes": "Wastewater: increase biogas capture at anaerobic wastewater treatment facilities."
+      },
+      {
+        "transformer_code": "TFR:LVST:DEC_ENTERIC_FERMENTATION",
+        "scalar": 1.0,
+        "ndc_axis": 13,
+        "notes": "Agriculture: reduce enteric fermentation emissions from livestock."
+      },
+      {
+        "transformer_code": "TFR:SOIL:DEC_N_APPLIED",
+        "scalar": 1.0,
+        "ndc_axis": 13,
+        "notes": "Agriculture: improve fertilizer application, reduce N2O from soils."
+      },
+      {
+        "transformer_code": "TFR:TRNS:INC_EFFICIENCY_NON_ELECTRIC",
+        "scalar": 1.0,
+        "ndc_axis": 14,
+        "notes": "Transport: non-electric vehicle efficiency (primary mode in Libya)."
+      },
+      {
+        "transformer_code": "TFR:TRNS:SHIFT_FUEL_LIGHT_DUTY",
+        "scalar": 1.0,
+        "ndc_axis": 14,
+        "notes": "Transport: electrify light-duty road transport (conditional on grid decarbonization)."
+      }
+    ]
+  }
+}

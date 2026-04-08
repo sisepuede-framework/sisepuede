@@ -174,7 +174,10 @@ class AttributeTable:
             fields_to_dict = [x for x in table.columns if (x != key)]
 
         # clear RST formatting in the table if applicable
-        if table[key].dtype in [object, str]:
+        # Use pd.api.types.is_string_dtype to handle both legacy 'object' dtype
+        # and new pandas StringDtype (ArrowStringArray, StringDtype) introduced in pandas 2.x
+        import pandas.api.types as _pat
+        if (table[key].dtype in [object, str]) or _pat.is_string_dtype(table[key].dtype):
             table[key] = np.array([sf.str_replace(str(x), {"`": "", "\$": ""}) for x in list(table[key])]).astype(str)
         
         # set all keys

@@ -1,0 +1,182 @@
+{
+  "_metadata": {
+    "description": "Libya SISEPUEDE baseline parameters for NDC simulation",
+    "generated_by": "AGENT 2 (input_validator)",
+    "date": "2026-04-07",
+    "sisepuede_region": "libya",
+    "iso_alpha_3": "LBY",
+    "iso_alpha_2": "LY",
+    "fao_area_code": "124",
+    "time_period_0_year": 2015,
+    "time_period_20_year": 2035,
+    "time_period_35_year": 2050,
+    "data_status": "MIXED — batch_data_generation CSVs provide per-sector parameters; GDP/population trajectories are synthetic from NDC assumptions; input_base_all_sectors.csv does NOT include LBY (only 70 countries)",
+    "notes": [
+      "Libya is present in ALL per-sector batch CSVs (2010-2050, time_periods -5 to 35).",
+      "Libya is NOT in input_base_all_sectors.csv — this file covers only 70 pre-built countries.",
+      "A full Libya template must be assembled from the batch_data CSVs and the synthetic GDP/population trajectories below.",
+      "Power mix fractions in nemomod CSVs show ~95% gas, ~4% oil historically; no renewables."
+    ]
+  },
+
+  "socioeconomic": {
+    "description": "GDP and population trajectories from NDC assumptions. GDP in 2015 USD billions (constant prices).",
+    "gdp_trajectory_usd_2015_billions": {
+      "source": "Libya NDC assumptions provided by ORCHESTRATOR",
+      "years": [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035],
+      "time_periods": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+      "values_usd_2015_billions": [32.5, 29.8, 31.6, 40.7, 38.7, 30.9, 37.5, 42.1, 45.0, 46.3, 47.5, 48.7, 50.6, 52.3, 54.1, 56.2, 58.5, 61.0, 64.1, 68.2, 72.7],
+      "notes": "Pre-2025 values estimated from World Bank/IMF data consistent with oil-state recovery patterns. 2025-2035 from NDC assumptions."
+    },
+    "population_trajectory": {
+      "source": "UN World Population Prospects + NDC assumptions",
+      "years": [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035],
+      "time_periods": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+      "values_thousands": [6278, 6386, 6494, 6602, 6712, 6871, 6936, 7001, 7067, 7113, 7160, 7209, 7259, 7311, 7364, 7420, 7478, 7538, 7600, 7665, 7732],
+      "urban_fraction": 0.80,
+      "notes": "Population ~7.0M in 2023. Urban fraction ~80% (World Bank 2022)."
+    },
+    "gdp_per_capita_usd_2015": {
+      "notes": "Derived: GDP_billions * 1e9 / population. 2023: ~6370 USD/capita",
+      "value_2023_usd": 6370
+    }
+  },
+
+  "emissions_baseline_2023": {
+    "description": "Sector-level GHG emissions for 2023 baseline year (Libya Third NC / NDC inventory)",
+    "total_ktco2e": 97311,
+    "unit": "ktCO2e (GWP100, AR6)",
+    "sectors": {
+      "fugitive_oil_and_gas": {
+        "share_pct": 28.0,
+        "ktco2e": 27247,
+        "sisepuede_subsectors": ["FGTV"],
+        "notes": "Includes venting, flaring, and distribution/transmission/production losses"
+      },
+      "energy_industries": {
+        "share_pct": 33.0,
+        "ktco2e": 32113,
+        "sisepuede_subsectors": ["ENTC (NeMo-Mod)", "SCOE (stationary combustion)"],
+        "notes": "Electricity generation (mostly gas turbines) + stationary combustion"
+      },
+      "transport": {
+        "share_pct": 24.0,
+        "ktco2e": 23355,
+        "sisepuede_subsectors": ["TRNS", "TRDE"],
+        "notes": "Road transport dominates; rail negligible"
+      },
+      "other_energy": {
+        "share_pct": 3.0,
+        "ktco2e": 2919,
+        "sisepuede_subsectors": ["SCOE", "INEN"],
+        "notes": "Residential/commercial combustion, industrial process heat"
+      },
+      "industrial_processes": {
+        "share_pct": 7.0,
+        "ktco2e": 6812,
+        "sisepuede_subsectors": ["INEN", "IPPU"],
+        "notes": "Cement, petrochemical, metal production"
+      },
+      "afolu": {
+        "share_pct": 4.0,
+        "ktco2e": 3892,
+        "sisepuede_subsectors": ["AGRC", "LVST", "LNDU", "LSMM", "SOIL"],
+        "notes": "Enteric fermentation (sheep/cattle) dominates; limited cropland"
+      },
+      "waste": {
+        "share_pct": 1.0,
+        "ktco2e": 973,
+        "sisepuede_subsectors": ["WASO", "WALI"],
+        "notes": "Landfill CH4 and wastewater"
+      }
+    }
+  },
+
+  "power_sector_baseline": {
+    "description": "Power generation mix for Libya. Sources: ENTC batch data (NeMo-Mod residual capacity) + NDC stated values.",
+    "generation_mix_2023": {
+      "natural_gas_pct": 60.7,
+      "diesel_oil_pct": 26.6,
+      "fuel_oil_pct": 6.1,
+      "renewables_pct": 0.0,
+      "notes": "NDC-stated mix. Batch data shows ~95% gas fraction in min_share_production (2015-2025), which may reflect older IEA data. Discrepancy: NDC shows higher diesel/oil share vs batch data. Use NDC values for calibration."
+    },
+    "grid_losses_pct": 22.0,
+    "notes_batch_data": "inputs_by_country_modvar_entc_nemomod_residual_capacity.csv shows gas capacity 8.8 GW (2015) declining to 1.0 GW (2035) as plants age; oil capacity 0.6 GW (2015) to 0 GW (2025+). New capacity must be added by NeMo-Mod LP.",
+    "residual_capacity_gw": {
+      "2015": {"gas": 8.844, "oil": 0.616, "solar": 0.0, "wind": 0.0, "coal": 0.0},
+      "2020": {"gas": 10.128, "oil": 0.388, "solar": 0.0, "wind": 0.0, "coal": 0.0},
+      "2025": {"gas": 8.696, "oil": 0.0, "solar": 0.0, "wind": 0.0, "coal": 0.0},
+      "2030": {"gas": 2.536, "oil": 0.0, "solar": 0.0, "wind": 0.0, "coal": 0.0},
+      "2035": {"gas": 1.044, "oil": 0.0, "solar": 0.0, "wind": 0.0, "coal": 0.0}
+    }
+  },
+
+  "transmission_loss": {
+    "description": "From inputs_by_country_modvar_enfu_transmission_loss_frac_electricity.csv",
+    "time_period_0_2015": 0.2928,
+    "note": "Actual 2015 value from batch data: frac_enfu_transmission_loss_fuel_electricity. High losses consistent with aging infrastructure. NDC value ~22% is for generation-level losses; SISEPUEDE variable is transmission fraction."
+  },
+
+  "fuel_costs_2023_usd": {
+    "description": "From inputs_by_country_modvar_enfu_fuel_costs.csv, time_period=8 (year 2023)",
+    "natural_gas_usd_per_mmbtu": 6.24,
+    "diesel_usd_per_m3": 1840.44,
+    "gasoline_usd_per_m3": 2070.22,
+    "crude_usd_per_m3": 367.36,
+    "electricity_usd_per_mmbtu": 60.69,
+    "coal_usd_per_tonne": 104.89,
+    "notes": "Libya subsidizes domestic fuel prices heavily; these may be export-parity prices from the batch data rather than domestic retail prices."
+  },
+
+  "scoe_energy": {
+    "description": "Stationary combustion of energy (buildings/commercial). From non_electric_energy_inputs CSVs.",
+    "data_available": true,
+    "files": [
+      "scoe_initial_energy_consumption.csv (41 Libya rows, 2010-2050)",
+      "scoe_elasticity_of_energy_consumption.csv (41 Libya rows, 2010-2050)",
+      "scoe_consumption_scalar.csv (41 Libya rows, 2010-2050)"
+    ],
+    "initial_consumption_2015_gj_per_hh_residential_heat": 1.046,
+    "initial_consumption_2015_gj_per_hh_residential_elec_appliances": 19.875
+  },
+
+  "ndc_targets": {
+    "description": "Libya NDC mitigation targets",
+    "target_year": 2035,
+    "bau_emissions_2035_ktco2e": "to be computed by SISEPUEDE",
+    "ndc_reduction_target_pct": 12.9,
+    "ndc_reduction_conditional_pct": 21.0,
+    "notes": "Unconditional: 12.9% reduction below BAU by 2035. Conditional on international support: 21% reduction. Key mitigation sectors: renewables expansion, oil & gas fugitives, transport efficiency."
+  },
+
+  "sisepuede_data_availability_summary": {
+    "batch_data_files_with_libya": {
+      "afolu_import_export_fractions": "9 rows (2011-2019 historical only, missing 2020-2050)",
+      "afolu_tillage_no_till": "41 rows (2010-2050) - PRESENT",
+      "climate_fields_by_country": "41 rows (2010-2050) - PRESENT",
+      "clinker_fraction_cement_ippu": "41 rows (2010-2050) - PRESENT",
+      "elasticity_industrial_production_to_gdp": "41 rows (2010-2050) - PRESENT",
+      "emission_factors_ippu_fcs": "41 rows (2010-2050) - PRESENT",
+      "industrial_production_scalar": "41 rows (2010-2050) - PRESENT",
+      "initial_industrial_production": "41 rows (2010-2050) - PRESENT",
+      "inputs_by_country_minimum_share_production": "41 rows (2010-2050) - PRESENT",
+      "inputs_by_country_modvar_enfu_fuel_costs": "36 rows (2015-2050) - PRESENT",
+      "inputs_by_country_modvar_enfu_transmission_loss": "41 rows (2010-2050) - PRESENT",
+      "inputs_by_country_modvar_entc_nemomod_residual_capacity": "65 rows (1976-2040) - PRESENT",
+      "net_imports_cement_clinker": "41 rows (2010-2050) - PRESENT",
+      "scoe_consumption_scalar": "41 rows (2010-2050) - PRESENT",
+      "scoe_elasticity_of_energy_consumption": "41 rows (2010-2050) - PRESENT",
+      "scoe_initial_energy_consumption": "41 rows (2010-2050) - PRESENT",
+      "soc_average_soc_by_country": "1 row (national average) - PRESENT",
+      "soc_fields_by_country": "41 rows (2010-2050) - PRESENT",
+      "nemomod_availability_factor": "32 rows (seasonal profiles) - PRESENT",
+      "nemomod_specified_demand_profile": "32 rows (seasonal demand) - PRESENT"
+    },
+    "critical_missing": {
+      "input_base_all_sectors": "Libya NOT in this 70-country pre-built database. Full sector template must be assembled from batch CSVs + synthetic socioeconomic data.",
+      "afolu_imports_exports_future": "Only 2011-2019 historical AFOLU trade data; 2020-2050 must be extrapolated or set to 2019 values.",
+      "nemomod_max_technological_capacity": "inputs_by_country_modvar_entc_nemomod_max_technological_capacity.csv has 0 Libya rows — cap constraints must be set from NDC renewable targets or left unconstrained."
+    }
+  }
+}
