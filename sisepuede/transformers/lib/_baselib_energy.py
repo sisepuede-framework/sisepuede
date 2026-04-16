@@ -2389,6 +2389,69 @@ def transformation_fgtv_maximize_flaring(
 
 
 
+def transformation_fgtv_increase_gas_recovery(
+    df_input: pd.DataFrame,
+    magnitude: float,
+    vec_ramp: np.ndarray,
+    model_attributes: ma.ModelAttributes,
+    model_enercons: me.EnergyConsumption,
+    **kwargs
+) -> pd.DataFrame:
+    """
+    Implement the "Increase Gas Recovery" (Gas Flaring Recovery) transformation.
+
+    Captures associated gas at the oil/gas wellhead that would otherwise be
+    flared, vented, or released as fugitive leaks, and removes it from the
+    emission accounting. Represents real-world interventions such as low-
+    pressure gas compressors, thermal oxidizers, re-injection to reservoir,
+    or productive use of recovered gas (power generation, LPG extraction,
+    export as LNG).
+
+    The transformation sets the fraction of associated gas captured to the
+    specified magnitude at the final time period. In EnergyConsumption, this
+    fraction scales the production volume feeding the three production-
+    emission streams (flaring, venting, fugitive leaks) by (1 - magnitude).
+    Distribution and transmission streams are unaffected.
+
+    Function Arguments
+    ------------------
+    - df_input: input data frame containing baseline trajectories
+    - magnitude: target fraction of associated gas captured at the final
+        time period (in [0, 1]). A value of 0.5 means 50% of the gas is
+        captured and removed from the emission streams.
+    - vec_ramp: ramp vector used for implementation
+    - model_attributes: ModelAttributes object used to call strategies/
+        variables
+    - model_enercons: EnergyConsumption object to provide variable access
+
+    Keyword Arguments
+    -----------------
+    - field_region: field in df_input that specifies the region
+    - regions_apply: optional set of regions to use to define strategy. If
+        None, applies to all regions.
+    - strategy_id: optional specification of strategy id to add to output
+        dataframe (only added if integer)
+    """
+
+    # call general transformation
+    df_out = transformation_general(
+        df_input,
+        model_attributes,
+        {
+            model_enercons.modvar_fgtv_frac_capture_associated_gas: {
+                "bounds": (0, 1),
+                "magnitude": magnitude,
+                "magnitude_type": "final_value",
+                "vec_ramp": vec_ramp
+            }
+        },
+        **kwargs
+    )
+
+    return df_out
+
+
+
 def transformation_fgtv_reduce_leaks(
     df_input: pd.DataFrame,
     magnitude: float,

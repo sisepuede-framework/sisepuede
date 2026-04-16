@@ -1445,15 +1445,22 @@ class Transformers:
         ##  FGTV
 
         self.fgtv_maximize_flaring = Transformer(
-            f"{_MODULE_CODE_SIGNATURE}:FGTV:INC_FLARE", 
-            self._trfunc_fgtv_maximize_flaring, 
+            f"{_MODULE_CODE_SIGNATURE}:FGTV:INC_FLARE",
+            self._trfunc_fgtv_maximize_flaring,
             attr_transformer_code
         )
         all_transformers.append(self.fgtv_maximize_flaring)
 
+        self.fgtv_increase_gas_recovery = Transformer(
+            f"{_MODULE_CODE_SIGNATURE}:FGTV:INC_GAS_RECOVERY",
+            self._trfunc_fgtv_increase_gas_recovery,
+            attr_transformer_code
+        )
+        all_transformers.append(self.fgtv_increase_gas_recovery)
+
         self.fgtv_minimize_leaks = Transformer(
-            f"{_MODULE_CODE_SIGNATURE}:FGTV:DEC_LEAKS", 
-            self._trfunc_fgtv_minimize_leaks, 
+            f"{_MODULE_CODE_SIGNATURE}:FGTV:DEC_LEAKS",
+            self._trfunc_fgtv_minimize_leaks,
             attr_transformer_code
         )
         all_transformers.append(self.fgtv_minimize_leaks)
@@ -6021,7 +6028,72 @@ class Transformers:
         
         df_strat_cur = tbe.transformation_fgtv_maximize_flaring(
             df_input,
-            magnitude, 
+            magnitude,
+            vec_implementation_ramp,
+            self.model_attributes,
+            field_region = self.key_region,
+            model_enercons = self.model_enercons,
+            strategy_id = strat
+        )
+
+        return df_strat_cur
+
+
+
+    def _trfunc_fgtv_increase_gas_recovery(self,
+        df_input: Union[pd.DataFrame, None] = None,
+        magnitude: float = 0.5,
+        strat: Union[int, None] = None,
+        vec_implementation_ramp: Union[np.ndarray, None] = None,
+    ) -> pd.DataFrame:
+        """Implement the "Increase Gas Recovery" (Gas Flaring Recovery) FGTV
+        transformer on input DataFrame df_input.
+
+        Represents capture of associated gas at oil/gas wellheads that would
+        otherwise be flared, vented, or released as fugitive leaks. Captured
+        gas is removed from all three production-emission streams
+        proportionally to `magnitude`. Distribution and transmission streams
+        are unaffected (GFR is upstream-only).
+
+        Real-world interventions represented: low-pressure gas compressors,
+        thermal oxidizers, re-injection to reservoir, or productive use of
+        recovered gas (power generation, LPG, LNG export).
+
+        Parameters
+        ----------
+        df_input : pd.DataFrame
+            Optional data frame containing trajectories to modify
+        magnitude : float
+            Fraction of associated gas captured at the final time period,
+            in [0, 1]. A value of 0.5 captures 50% of associated gas.
+        strat : int
+            Optional strategy value to specify for the transformation
+        vec_implementation_ramp : Union[np.ndarray, Dict[str, int], None]
+            Optional vector or dictionary specifying the implementation
+            scalar ramp for the transformation. If None, defaults to a
+            uniform ramp that starts at the time specified in the
+            configuration.
+        """
+        # check input dataframe
+        df_input = (
+            self.baseline_inputs
+            if not isinstance(df_input, pd.DataFrame)
+            else df_input
+        )
+
+        # check implementation ramp
+        vec_implementation_ramp = self.check_implementation_ramp(
+            vec_implementation_ramp,
+            df_input,
+        )
+
+        # verify magnitude
+        magnitude = self.bounded_real_magnitude(magnitude, 0.5)
+
+
+        df_strat_cur = tbe.transformation_fgtv_increase_gas_recovery(
+            df_input,
+            magnitude,
             vec_implementation_ramp,
             self.model_attributes,
             field_region = self.key_region,
