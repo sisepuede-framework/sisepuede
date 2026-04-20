@@ -3665,19 +3665,30 @@ class Transformers:
         df_input: Union[pd.DataFrame, None] = None,
         cats_inflow_restriction: Union[List[str], None] = ["croplands", "other"],
         magnitude: float = 0.2,
+        magnitude_type: str = "baseline_scalar",
         strat: Union[int, None] = None,
         vec_implementation_ramp: Union[np.ndarray, Dict[str, int], None] = None,
     ) -> pd.DataFrame:
-        """Implement the "Increase Reforestation" FRST transformer on input DataFrame df_input. 
-        
+        """Implement the "Increase Reforestation" FRST transformer on input DataFrame df_input.
+
         Parameters
         ----------
         cats_inflow_restriction : Union[List[str], None]
-            LNDU categories to allow to transition into secondary forest; don't specify categories that cannot be reforested 
+            LNDU categories to allow to transition into secondary forest; don't specify categories that cannot be reforested
         df_input : pd.DataFrame
             Optional data frame containing trajectories to modify
         magnitude : float
-            Fractional increase in secondary forest area to specify; for example, a 10% increase in secondary forests is specified as 0.1
+            Interpretation depends on ``magnitude_type``:
+            - ``"baseline_scalar"`` (default, backward compatible): fractional
+              increase in secondary forest final area (e.g. 0.1 = +10%).
+              Bounded to [0, 1].
+            - ``"final_value"``: target land-use fraction of secondary forest
+              at the end of the ramp (e.g. 0.0024 = 0.24% of total land).
+              Bounded to [0, 1].
+        magnitude_type : str
+            Either ``"baseline_scalar"`` or ``"final_value"``. Use
+            ``"final_value"`` when the policy target is absolute area (deck/NDC
+            targets); use ``"baseline_scalar"`` for relative increments.
         strat : int
             Optional strategy value to specify for the transformation
         vec_implementation_ramp : Union[np.ndarray, Dict[str, int], None]
@@ -3686,11 +3697,12 @@ class Transformers:
         # check input dataframe
         df_input = (
             self.baseline_inputs
-            if not isinstance(df_input, pd.DataFrame) 
+            if not isinstance(df_input, pd.DataFrame)
             else df_input
         )
-        
-        # set the magnitude in case of none
+
+        # set the magnitude in case of none; both baseline_scalar and
+        # final_value live in [0, 1].
         magnitude = self.bounded_real_magnitude(magnitude, 0.2)
 
         # check implementation ramp
@@ -3701,11 +3713,12 @@ class Transformers:
 
 
         df_out = tba.transformation_frst_increase_reforestation(
-            df_input, 
+            df_input,
             magnitude, # double forests INDIA
             vec_implementation_ramp,
             self.model_attributes,
             cats_inflow_restriction = cats_inflow_restriction, # SET FOR INDIA--NEED A BETTER WAY TO DETERMINE
+            magnitude_type = magnitude_type,
             field_region = self.key_region,
             model_afolu = self.model_afolu,
             strategy_id = strat,
