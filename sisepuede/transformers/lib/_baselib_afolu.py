@@ -582,6 +582,7 @@ def transformation_frst_increase_reforestation(
     vec_ramp: np.ndarray,
     model_attributes: ma.ModelAttributes,
     cats_inflow_restriction: Union[List[str], None] = None,
+    magnitude_type: str = "baseline_scalar",
     model_afolu: Union[mafl.AFOLU, None] = None,
     strategy_id: Union[int, None] = None,
     **kwargs
@@ -646,11 +647,16 @@ def transformation_frst_increase_reforestation(
 
     )
     
+    # If magnitude_type is "baseline_scalar", the underlying routine multiplies
+    # baseline by magnitude -> shift input by +1 so that `magnitude=0.2` becomes
+    # a 20% increase (factor 1.2). For "final_value" the magnitude is the target
+    # land fraction of forests_secondary and is passed through unchanged.
+    _mag_internal = magnitude + 1 if magnitude_type == "baseline_scalar" else magnitude
     dict_magnitude = {
         cat_fsts: {
             "categories_inflow_restrict": cats_ir,
-            "magnitude": magnitude + 1,
-            "magnitude_type": "baseline_scalar"
+            "magnitude": _mag_internal,
+            "magnitude_type": magnitude_type,
         }
     }
     
@@ -1455,45 +1461,46 @@ def transformation_support_lndu_transition_to_category_targets_single_region(
     fracs_unadj_first_effect_tp = np.dot(vec_lndu_final_virnz_frac_unadj, qs[ind_first_nz - 1])
     fracs_unadj_first_effect_tp = np.dot(fracs_unadj_first_effect_tp, qs[ind_first_nz])[inds_to_modify]
     fracs_target_final_tp = np.array([dict_magnitude.get(x).get("magnitude") for x in cats_to_modify])
-    """
-    OPTION FOR EXPANSION: SPECIFY NON-LINEAR TARGETS (READ OFF OF vec_implementation_ramp)
 
-    df_tp = df_input[[model_attributes.dim_time_period]].copy()
-    
-    df_tmp = df_tp.iloc[0:ind_first_nz].copy()
-    df_tmp = pd.concat(
-        [
-            df_tmp.reset_index(drop = True), 
-            pd.DataFrame(
-                arr_land_use[:, inds_to_modify],
-                columns = cats_to_modify
-            )
-        ],
-        axis = 1
+    # Compute per-tp target shares using the implementation-ramp shape. This
+    # closes the "OPTION FOR EXPANSION: SPECIFY NON-LINEAR TARGETS" TODO that
+    # used to live here: the ramp's *shape* (not just its first non-zero
+    # position) now controls how fast the target share approaches
+    # `fracs_target_final_tp`. Cumulative-max ensures plateau behavior: once
+    # the ramp peaks, subsequent tps hold the achieved target, so a user who
+    # truncates the ramp back to 0 (e.g. plant 2024-2035, maintain 2036-2050)
+    # gets a flat land-use stock rather than shrinkage.
+    #
+    # Back-compat: the default ramp produced by build_implementation_ramp_vector
+    # is monotonic non-decreasing and reaches 1.0 at the last tp, so for the
+    # default case `ramp_weights` is just vec_ramp[ind_first_nz:] and
+    # arr_target_shares[-1] = fracs_target_final_tp, matching the legacy
+    # linear-to-end-of-simulation behavior at its endpoints (the per-tp values
+    # now follow the ramp shape instead of a uniform linear interpolation,
+    # which is the intended semantic of vec_ramp everywhere else in
+    # SISEPUEDE).
+    _vec_ramp_iter = np.asarray(vec_ramp[ind_first_nz:], dtype = float)
+    _ramp_cum = (
+        np.maximum.accumulate(_vec_ramp_iter)
+        if _vec_ramp_iter.size
+        else _vec_ramp_iter
     )
-
-    df_append = {
-        model_attributes.dim_time_period: [int(df_input[model_attributes.dim_time_period].iloc[-1])]
-    }
-    df_append.update(
-        dict(
-            (cats_to_modify: [])
-        )
-    )
-
-
-    df_tmp = pd.DataFrame({
-        time_periods.field_time_period: [0, 1, 2, 3, 4, 5, 35],
-        #"val": [0.3, 0.31, 0.32, 0.3275, 0.3325, 0.335, 0.335]
-        "val": [0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.335]
-    })
-    df_tmp = pd.merge(df_tp, df_tmp, how = "left")
-    ?df_tmp.interpolate
-    df_tmp.interpolate(method = "linear", order = 2).plot(x = "time_period")
-    """
-    arr_target_shares = (fracs_target_final_tp - fracs_unadj_first_effect_tp)/n_tp_scale
-    arr_target_shares = np.outer(np.arange(1, n_tp_scale + 1), arr_target_shares)
-    arr_target_shares += fracs_unadj_first_effect_tp
+    _ramp_max = _ramp_cum.max() if _ramp_cum.size else 0.0
+    if _ramp_max <= 0.0:
+        # degenerate ramp (all zeros after ind_first_nz) — preserve legacy
+        # linear fallback so we never produce NaNs or an empty target array.
+        arr_target_shares = (fracs_target_final_tp - fracs_unadj_first_effect_tp)/n_tp_scale
+        arr_target_shares = np.outer(np.arange(1, n_tp_scale + 1), arr_target_shares)
+        arr_target_shares += fracs_unadj_first_effect_tp
+    else:
+        # Normalize cumulative ramp to [0, 1]; allows user to pass a ramp
+        # whose peak is < 1.0 (partial implementation) without us silently
+        # overshooting the target fraction.
+        _ramp_weights = _ramp_cum / _ramp_max
+        arr_target_shares = np.outer(
+            _ramp_weights,
+            fracs_target_final_tp - fracs_unadj_first_effect_tp,
+        ) + fracs_unadj_first_effect_tp
 
     # verify and implement stable output transition categories
     cats_ignore = []
