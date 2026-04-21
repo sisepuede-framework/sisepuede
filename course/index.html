@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SISEPUEDE Learning Course | Curso de Aprendizaje SISEPUEDE</title>
+    <meta name="description" content="A complete Coursera-style course to master the SISEPUEDE decarbonization modeling framework. Curso completo estilo Coursera para dominar el marco de modelado de descarbonización SISEPUEDE.">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['\\(', '\\)'], ['$', '$']], displayMath: [['\\[', '\\]'], ['$$', '$$']] },
+        svg: { fontCache: 'global' }
+      };
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="#/" class="logo">
+                <span class="logo-mark">SP</span>
+                <span class="logo-text">SISEPUEDE <em data-i18n="brand.tagline">Learning Course</em></span>
+            </a>
+            <nav class="site-nav">
+                <a href="#/" data-i18n="nav.home">Home</a>
+                <a href="#/modules" data-i18n="nav.modules">Modules</a>
+                <a href="#/glossary" data-i18n="nav.glossary">Glossary</a>
+                <a href="#/about" data-i18n="nav.about">About</a>
+            </nav>
+            <div class="lang-switcher" role="group" aria-label="Language">
+                <button data-set-lang="en" class="active">EN</button>
+                <button data-set-lang="es">ES</button>
+            </div>
+            <button class="menu-toggle" aria-label="Open menu">☰</button>
+        </div>
+    </header>
+
+    <main id="app"></main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>
+                <strong>SISEPUEDE Learning Course</strong>
+                <p data-i18n="footer.desc">An open educational resource based on the official SISEPUEDE documentation (sisepuede.readthedocs.io).</p>
+            </div>
+            <div>
+                <h4 data-i18n="footer.resources">Resources</h4>
+                <ul>
+                    <li><a href="https://sisepuede.readthedocs.io/en/latest/" target="_blank" rel="noopener">Official Docs</a></li>
+                    <li><a href="https://github.com/jcsyme/sisepuede" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://www.ipcc-nggip.iges.or.jp/public/2006gl/index.html" target="_blank" rel="noopener">IPCC 2006 Guidelines</a></li>
+                    <li><a href="https://www.ipcc-nggip.iges.or.jp/public/2019rf/index.html" target="_blank" rel="noopener">IPCC 2019 Refinement</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 data-i18n="footer.license">License</h4>
+                <p data-i18n="footer.licenseDesc">Educational material released under the same license as the SISEPUEDE project.</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <span>© 2026 SISEPUEDE Learning Course</span>
+            <span data-i18n="footer.contrib">Made with ❤ for climate-responsible modeling</span>
+        </div>
+    </footer>
+
+    <script src="assets/js/course-data.js"></script>
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-julia.min.js"></script>
+</body>
+</html>
