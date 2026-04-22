@@ -1,47 +1,43 @@
 ---
-sidebar_position: 1
+title: "Welcome"
+sidebar_position: 0
+slug: /
 ---
 
-# Tutorial Intro
+import CourseHero from '@site/static/img/course-hero.svg';
 
-Let's discover **Docusaurus in less than 5 minutes**.
+# Welcome to the SISEPUEDE Course
 
-## Getting Started
+<CourseHero style={{maxWidth: '100%', height: 'auto', marginBottom: '1.5rem'}} />
 
-Get started by **creating a new site**.
+This course teaches you how to use **SISEPUEDE** (SImulating SEctoral Pathways and Uncertainty Exploration for DEcarbonization) — an integrated Python/Julia framework for exploratory analysis of country-level decarbonization pathways under deep uncertainty. You will learn the model's architecture, its variable schema, each sectoral emission model, how policy transformations and strategies are composed, and how to run full DMDU experiments.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## Course Structure
 
-### What you'll need
+<div className="course-grid" style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1rem', margin: '1.5rem 0'}}>
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+- **[Part I — Foundations](/foundations/what-is-sisepuede)** — What SISEPUEDE is, architecture overview, installation.
+- **[Part II — Variable Schema](/variable-schema/model-attributes)** — `ModelAttributes`, variable naming, categories and units.
+- **[Part III — Sectoral Models](/sectoral-models/afolu)** — AFOLU, Circular Economy, Energy, IPPU, Socioeconomic.
+- **[Part IV — Transformers & Strategies](/transformers/transformer-vs-transformation)** — Policy building blocks and how to compose them.
+- **[Part V — DMDU](/dmdu/experimental-design)** — LHS sampling, experimental design, primary IDs.
+- **[Part VI — Hands-on Tutorials](/tutorials/sector-models)** — End-to-end worked examples.
 
-## Generate a new site
+</div>
 
-Generate a new Docusaurus site using the **classic template**.
+## Who is this course for
 
-The classic template will automatically be added to your project after you run the command:
+Researchers, analysts, and policymakers who need to build, run, or interpret SISEPUEDE scenarios — including technical teams at ministries, think tanks, development banks, and universities working on long-term mitigation strategy, NDC analysis, or Article 6 accounting.
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+## How to use this course
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+Parts I and II are prerequisites for everything else. If you are new to SISEPUEDE, read them in order. Parts III–V can be consulted independently once you know the schema. Part VI contains runnable notebooks — use them to cement concepts from earlier parts.
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+## Language
 
-## Start your site
+This course is bilingual. Switch between **English** and **Español** using the locale selector in the top-right navbar. Spanish content uses LATAM technical register.
 
-Run the development server:
+## Further resources
 
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+- [SISEPUEDE Reference Documentation](https://sisepuede.readthedocs.io/) — full API reference
+- [GitHub repository (`jcsyme/sisepuede`)](https://github.com/jcsyme/sisepuede) — source, issues, releases

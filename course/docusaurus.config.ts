@@ -20,7 +20,7 @@ const config: Config = {
       es: {label: 'Español'},
     },
   },
-  markdown: {mermaid: true},
+  markdown: {mermaid: true, format: 'detect'},
   themes: ['@docusaurus/theme-mermaid'],
   presets: [
     [

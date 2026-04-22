@@ -1,47 +1,43 @@
 ---
-sidebar_position: 1
+title: "Bienvenida"
+sidebar_position: 0
+slug: /
 ---
 
-# Tutorial Intro
+import CourseHero from '@site/static/img/course-hero.svg';
 
-Let's discover **Docusaurus in less than 5 minutes**.
+# Bienvenida al curso de SISEPUEDE
 
-## Getting Started
+<CourseHero style={{maxWidth: '100%', height: 'auto', marginBottom: '1.5rem'}} />
 
-Get started by **creating a new site**.
+Este curso te enseña a usar **SISEPUEDE** (SImulando SEndas sectoriales y exploración de incertidumbre para la DEscarbonización) — un marco integrado en Python/Julia para el análisis exploratorio de trayectorias de descarbonización a nivel país bajo incertidumbre profunda. Aprenderás la arquitectura del modelo, su esquema de variables, cada modelo sectorial de emisiones, cómo se componen las transformaciones y estrategias de política, y cómo ejecutar experimentos DMDU completos.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## Estructura del curso
 
-### What you'll need
+<div className="course-grid" style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1rem', margin: '1.5rem 0'}}>
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+- **[Parte I — Fundamentos](/foundations/what-is-sisepuede)** — Qué es SISEPUEDE, visión general de la arquitectura e instalación.
+- **[Parte II — Esquema de Variables](/variable-schema/model-attributes)** — `ModelAttributes`, nomenclatura de variables, categorías y unidades.
+- **[Parte III — Modelos Sectoriales](/sectoral-models/afolu)** — AFOLU, Economía Circular, Energía, IPPU y Socioeconómico.
+- **[Parte IV — Transformadores y Estrategias](/transformers/transformer-vs-transformation)** — Bloques de construcción de política y su composición.
+- **[Parte V — DMDU](/dmdu/experimental-design)** — Muestreo LHS, diseño experimental e identificadores primarios.
+- **[Parte VI — Tutoriales Prácticos](/tutorials/sector-models)** — Ejemplos prácticos de principio a fin.
 
-## Generate a new site
+</div>
 
-Generate a new Docusaurus site using the **classic template**.
+## ¿A quién va dirigido este curso?
 
-The classic template will automatically be added to your project after you run the command:
+A personas investigadoras, analistas y tomadoras de decisiones que necesiten construir, ejecutar o interpretar escenarios de SISEPUEDE — incluyendo equipos técnicos de ministerios, centros de pensamiento, bancos de desarrollo y universidades que trabajan en estrategias de mitigación de largo plazo, análisis de NDC o contabilidad del Artículo 6.
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+## Cómo usar este curso
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+Las Partes I y II son prerrequisitos para el resto del material. Si es tu primer acercamiento a SISEPUEDE, léelas en orden. Las Partes III a V pueden consultarse de manera independiente una vez que domines el esquema. La Parte VI contiene notebooks ejecutables — úsalos para consolidar los conceptos de las partes anteriores.
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+## Idioma
 
-## Start your site
+Este curso es bilingüe. Cambia entre **English** y **Español** mediante el selector de idioma en la barra superior derecha. El contenido en español utiliza registro técnico LATAM.
 
-Run the development server:
+## Recursos adicionales
 
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+- [Documentación de referencia de SISEPUEDE](https://sisepuede.readthedocs.io/) — referencia completa de la API
+- [Repositorio en GitHub (`jcsyme/sisepuede`)](https://github.com/jcsyme/sisepuede) — código fuente, incidencias y versiones
