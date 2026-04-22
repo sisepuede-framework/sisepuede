@@ -1,0 +1,43 @@
+---
+title: "Welcome"
+sidebar_position: 0
+slug: /
+---
+
+import CourseHero from '@site/static/img/course-hero.svg';
+
+# Welcome to the SISEPUEDE Course
+
+<CourseHero style={{maxWidth: '100%', height: 'auto', marginBottom: '1.5rem'}} />
+
+This course teaches you how to use **SISEPUEDE** (SImulating SEctoral Pathways and Uncertainty Exploration for DEcarbonization) — an integrated Python/Julia framework for exploratory analysis of country-level decarbonization pathways under deep uncertainty. You will learn the model's architecture, its variable schema, each sectoral emission model, how policy transformations and strategies are composed, and how to run full DMDU experiments.
+
+## Course Structure
+
+<div className="course-grid" style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1rem', margin: '1.5rem 0'}}>
+
+- **[Part I — Foundations](/foundations/what-is-sisepuede)** — What SISEPUEDE is, architecture overview, installation.
+- **[Part II — Variable Schema](/variable-schema/model-attributes)** — `ModelAttributes`, variable naming, categories and units.
+- **[Part III — Sectoral Models](/sectoral-models/afolu)** — AFOLU, Circular Economy, Energy, IPPU, Socioeconomic.
+- **[Part IV — Transformers & Strategies](/transformers/transformer-vs-transformation)** — Policy building blocks and how to compose them.
+- **[Part V — DMDU](/dmdu/experimental-design)** — LHS sampling, experimental design, primary IDs.
+- **[Part VI — Hands-on Tutorials](/tutorials/sector-models)** — End-to-end worked examples.
+
+</div>
+
+## Who is this course for
+
+Researchers, analysts, and policymakers who need to build, run, or interpret SISEPUEDE scenarios — including technical teams at ministries, think tanks, development banks, and universities working on long-term mitigation strategy, NDC analysis, or Article 6 accounting.
+
+## How to use this course
+
+Parts I and II are prerequisites for everything else. If you are new to SISEPUEDE, read them in order. Parts III–V can be consulted independently once you know the schema. Part VI contains runnable notebooks — use them to cement concepts from earlier parts.
+
+## Language
+
+This course is bilingual. Switch between **English** and **Español** using the locale selector in the top-right navbar. Spanish content uses LATAM technical register.
+
+## Further resources
+
+- [SISEPUEDE Reference Documentation](https://sisepuede.readthedocs.io/) — full API reference
+- [GitHub repository (`jcsyme/sisepuede`)](https://github.com/jcsyme/sisepuede) — source, issues, releases

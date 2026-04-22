@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@500;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --ifm-color-primary: #0F766E;
+  --ifm-color-primary-dark: #0E635D;
+  --ifm-color-primary-darker: #0D5853;
+  --ifm-color-primary-darkest: #0A4844;
+  --ifm-color-primary-light: #117D75;
+  --ifm-color-primary-lighter: #128B82;
+  --ifm-color-primary-lightest: #14A398;
+  --ifm-font-family-base: 'Inter', system-ui, sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', ui-monospace, monospace;
+  --ifm-heading-font-family: 'Crimson Pro', Georgia, serif;
+  --ifm-heading-font-weight: 600;
+  --ifm-code-font-size: 90%;
+  --ifm-spacing-horizontal: 1.5rem;
+  --ifm-container-width-xl: 1280px;
+  --ifm-background-color: #FAFAFA;
+  --ifm-background-surface-color: #FFFFFF;
+  --docusaurus-highlighted-code-line-bg: rgba(15, 118, 110, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #14B8A6;
+  --ifm-color-primary-dark: #0D9488;
+  --ifm-color-primary-darker: #0B7E76;
+  --ifm-color-primary-darkest: #086862;
+  --ifm-color-primary-light: #2DD4BF;
+  --ifm-color-primary-lighter: #5EEAD4;
+  --ifm-color-primary-lightest: #99F6E4;
+  --ifm-background-color: #0A0A0A;
+  --ifm-background-surface-color: #171717;
+  --docusaurus-highlighted-code-line-bg: rgba(20, 184, 166, 0.15);
+}
+
+/* Editorial grid touches */
+.markdown h1, .markdown h2, .markdown h3 {
+  letter-spacing: -0.02em;
+}
+.markdown h1 { font-size: 2.5rem; line-height: 1.15; }
+.markdown h2 { font-size: 1.875rem; line-height: 1.25; margin-top: 3rem; }
+
+/* Sector accent borders */
+.sector-afolu { border-left: 4px solid #15803D; }
+.sector-energy { border-left: 4px solid #D97706; }
+.sector-ippu { border-left: 4px solid #7C3AED; }
+.sector-ce { border-left: 4px solid #0891B2; }
+.sector-socio { border-left: 4px solid #475569; }

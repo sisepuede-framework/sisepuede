@@ -1,0 +1,43 @@
+---
+title: "Bienvenida"
+sidebar_position: 0
+slug: /
+---
+
+import CourseHero from '@site/static/img/course-hero.svg';
+
+# Bienvenida al curso de SISEPUEDE
+
+<CourseHero style={{maxWidth: '100%', height: 'auto', marginBottom: '1.5rem'}} />
+
+Este curso te enseña a usar **SISEPUEDE** (SImulando SEndas sectoriales y exploración de incertidumbre para la DEscarbonización) — un marco integrado en Python/Julia para el análisis exploratorio de trayectorias de descarbonización a nivel país bajo incertidumbre profunda. Aprenderás la arquitectura del modelo, su esquema de variables, cada modelo sectorial de emisiones, cómo se componen las transformaciones y estrategias de política, y cómo ejecutar experimentos DMDU completos.
+
+## Estructura del curso
+
+<div className="course-grid" style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1rem', margin: '1.5rem 0'}}>
+
+- **[Parte I — Fundamentos](/foundations/what-is-sisepuede)** — Qué es SISEPUEDE, visión general de la arquitectura e instalación.
+- **[Parte II — Esquema de Variables](/variable-schema/model-attributes)** — `ModelAttributes`, nomenclatura de variables, categorías y unidades.
+- **[Parte III — Modelos Sectoriales](/sectoral-models/afolu)** — AFOLU, Economía Circular, Energía, IPPU y Socioeconómico.
+- **[Parte IV — Transformadores y Estrategias](/transformers/transformer-vs-transformation)** — Bloques de construcción de política y su composición.
+- **[Parte V — DMDU](/dmdu/experimental-design)** — Muestreo LHS, diseño experimental e identificadores primarios.
+- **[Parte VI — Tutoriales Prácticos](/tutorials/sector-models)** — Ejemplos prácticos de principio a fin.
+
+</div>
+
+## ¿A quién va dirigido este curso?
+
+A personas investigadoras, analistas y tomadoras de decisiones que necesiten construir, ejecutar o interpretar escenarios de SISEPUEDE — incluyendo equipos técnicos de ministerios, centros de pensamiento, bancos de desarrollo y universidades que trabajan en estrategias de mitigación de largo plazo, análisis de NDC o contabilidad del Artículo 6.
+
+## Cómo usar este curso
+
+Las Partes I y II son prerrequisitos para el resto del material. Si es tu primer acercamiento a SISEPUEDE, léelas en orden. Las Partes III a V pueden consultarse de manera independiente una vez que domines el esquema. La Parte VI contiene notebooks ejecutables — úsalos para consolidar los conceptos de las partes anteriores.
+
+## Idioma
+
+Este curso es bilingüe. Cambia entre **English** y **Español** mediante el selector de idioma en la barra superior derecha. El contenido en español utiliza registro técnico LATAM.
+
+## Recursos adicionales
+
+- [Documentación de referencia de SISEPUEDE](https://sisepuede.readthedocs.io/) — referencia completa de la API
+- [Repositorio en GitHub (`jcsyme/sisepuede`)](https://github.com/jcsyme/sisepuede) — código fuente, incidencias y versiones

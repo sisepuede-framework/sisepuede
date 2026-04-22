@@ -1,0 +1,26 @@
+{
+  "sidebar.courseSidebar.category.Part I — Foundations": {
+    "message": "Parte I — Fundamentos",
+    "description": "The label for category Part I — Foundations in sidebar courseSidebar"
+  },
+  "sidebar.courseSidebar.category.Part II — Variable Schema": {
+    "message": "Parte II — Esquema de Variables",
+    "description": "The label for category Part II — Variable Schema in sidebar courseSidebar"
+  },
+  "sidebar.courseSidebar.category.Part III — Sectoral Models": {
+    "message": "Parte III — Modelos Sectoriales",
+    "description": "The label for category Part III — Sectoral Models in sidebar courseSidebar"
+  },
+  "sidebar.courseSidebar.category.Part IV — Transformers & Strategies": {
+    "message": "Parte IV — Transformadores y Estrategias",
+    "description": "The label for category Part IV — Transformers & Strategies in sidebar courseSidebar"
+  },
+  "sidebar.courseSidebar.category.Part V — DMDU": {
+    "message": "Parte V — DMDU",
+    "description": "The label for category Part V — DMDU in sidebar courseSidebar"
+  },
+  "sidebar.courseSidebar.category.Part VI — Hands-on Tutorials": {
+    "message": "Parte VI — Tutoriales Prácticos",
+    "description": "The label for category Part VI — Hands-on Tutorials in sidebar courseSidebar"
+  }
+}
