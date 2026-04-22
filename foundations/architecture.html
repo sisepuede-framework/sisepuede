@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-foundations/architecture" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.0">
+<title data-rh="true">Architecture Overview | SISEPUEDE Course</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://sisepuede-framework.github.io/sisepuede/img/social-card.png"><meta data-rh="true" name="twitter:image" content="https://sisepuede-framework.github.io/sisepuede/img/social-card.png"><meta data-rh="true" property="og:url" content="https://sisepuede-framework.github.io/sisepuede/foundations/architecture"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="es"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Architecture Overview | SISEPUEDE Course"><meta data-rh="true" name="description" content="SISEPUEDE is a hybrid Python + Julia framework organized around a deterministic 8-phase pipeline. Python owns the schema, sectoral models, orchestration, and I/O. Julia owns one narrow but computationally demanding task: solving the energy-system linear program via NeMo-Mod. The two runtimes communicate through a temporary SQLite database — no shared memory, no direct function calls across the language boundary."><meta data-rh="true" property="og:description" content="SISEPUEDE is a hybrid Python + Julia framework organized around a deterministic 8-phase pipeline. Python owns the schema, sectoral models, orchestration, and I/O. Julia owns one narrow but computationally demanding task: solving the energy-system linear program via NeMo-Mod. The two runtimes communicate through a temporary SQLite database — no shared memory, no direct function calls across the language boundary."><link data-rh="true" rel="icon" href="/sisepuede/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://sisepuede-framework.github.io/sisepuede/foundations/architecture"><link data-rh="true" rel="alternate" href="https://sisepuede-framework.github.io/sisepuede/foundations/architecture" hreflang="en"><link data-rh="true" rel="alternate" href="https://sisepuede-framework.github.io/sisepuede/es/foundations/architecture" hreflang="es"><link data-rh="true" rel="alternate" href="https://sisepuede-framework.github.io/sisepuede/foundations/architecture" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Architecture Overview","item":"https://sisepuede-framework.github.io/sisepuede/foundations/architecture"}]}</script><link rel="stylesheet" href="/sisepuede/assets/css/styles.08bf744f.css">
+<script src="/sisepuede/assets/js/runtime~main.080f6a16.js" defer="defer"></script>
+<script src="/sisepuede/assets/js/main.3494f70e.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/sisepuede/img/sisepuede-logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/sisepuede/"><div class="navbar__logo"><img src="/sisepuede/img/sisepuede-logo.svg" alt="SISEPUEDE" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/sisepuede/img/sisepuede-logo.svg" alt="SISEPUEDE" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">SISEPUEDE Course</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/sisepuede/">Course</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://sisepuede.readthedocs.io/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Reference Docs<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><a href="https://github.com/jcsyme/sisepuede" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>English</a><ul class="dropdown__menu"><li><a href="/sisepuede/foundations/architecture" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="en">English</a></li><li><a href="/sisepuede/es/foundations/architecture" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="es">Español</a></li></ul></div><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/sisepuede/"><span title="Welcome" class="linkLabel_WmDU">Welcome</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/sisepuede/foundations/what-is-sisepuede"><span title="Part I — Foundations" class="categoryLinkLabel_W154">Part I — Foundations</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/foundations/what-is-sisepuede"><span title="What is SISEPUEDE?" class="linkLabel_WmDU">What is SISEPUEDE?</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/sisepuede/foundations/architecture"><span title="Architecture Overview" class="linkLabel_WmDU">Architecture Overview</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/foundations/installation"><span title="Installation &amp; First Steps" class="linkLabel_WmDU">Installation &amp; First Steps</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/sisepuede/variable-schema"><span title="Part II — Variable Schema" class="categoryLinkLabel_W154">Part II — Variable Schema</span></a><button aria-label="Collapse sidebar category &#x27;Part II — Variable Schema&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/variable-schema/model-attributes"><span title="ModelAttributes" class="linkLabel_WmDU">ModelAttributes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/variable-schema/categories-units"><span title="Categories &amp; Units" class="linkLabel_WmDU">Categories &amp; Units</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/sisepuede/sectoral-models/afolu"><span title="Part III — Sectoral Models" class="categoryLinkLabel_W154">Part III — Sectoral Models</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/sectoral-models/afolu"><span title="AFOLU — Agriculture, Forestry &amp; Land Use" class="linkLabel_WmDU">AFOLU — Agriculture, Forestry &amp; Land Use</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/sectoral-models/circular-economy"><span title="Circular Economy — Waste &amp; Wastewater" class="linkLabel_WmDU">Circular Economy — Waste &amp; Wastewater</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/sectoral-models/energy-consumption"><span title="Energy Consumption — Demand-Side Subsectors" class="linkLabel_WmDU">Energy Consumption — Demand-Side Subsectors</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/sectoral-models/energy-production"><span title="Energy Production — Julia/NeMo-Mod LP" class="linkLabel_WmDU">Energy Production — Julia/NeMo-Mod LP</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/sectoral-models/ippu"><span title="IPPU — Industrial Processes &amp; Product Use" class="linkLabel_WmDU">IPPU — Industrial Processes &amp; Product Use</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/sectoral-models/socioeconomic"><span title="Socioeconomic — Drivers Across All Sectors" class="linkLabel_WmDU">Socioeconomic — Drivers Across All Sectors</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/sisepuede/transformers/transformer-vs-transformation"><span title="Part IV — Transformers &amp; Strategies" class="categoryLinkLabel_W154">Part IV — Transformers &amp; Strategies</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/transformers/transformer-vs-transformation"><span title="Transformer vs Transformation" class="linkLabel_WmDU">Transformer vs Transformation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/transformers/strategies"><span title="Strategies — Composing Transformations" class="linkLabel_WmDU">Strategies — Composing Transformations</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/sisepuede/dmdu/experimental-design"><span title="Part V — DMDU" class="categoryLinkLabel_W154">Part V — DMDU</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/dmdu/experimental-design"><span title="Experimental Design — LHS, Strategies &amp; Futures" class="linkLabel_WmDU">Experimental Design — LHS, Strategies &amp; Futures</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/sisepuede/tutorials/sector-models"><span title="Part VI — Hands-on Tutorials" class="categoryLinkLabel_W154">Part VI — Hands-on Tutorials</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/tutorials/sector-models"><span title="Tutorial 1 — Sector Models" class="linkLabel_WmDU">Tutorial 1 — Sector Models</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/tutorials/model-attributes"><span title="Tutorial 2 — ModelAttributes" class="linkLabel_WmDU">Tutorial 2 — ModelAttributes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/tutorials/transformations"><span title="Tutorial 3 — Working with Transformations" class="linkLabel_WmDU">Tutorial 3 — Working with Transformations</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/tutorials/sisepuede-object"><span title="Tutorial 4 — The SISEPUEDE Object" class="linkLabel_WmDU">Tutorial 4 — The SISEPUEDE Object</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/tutorials/article-6"><span title="Tutorial 5 — Paris Article 6 Analysis" class="linkLabel_WmDU">Tutorial 5 — Paris Article 6 Analysis</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/tutorials/uncertain-trajectories"><span title="Tutorial 6 — Uncertain Trajectories" class="linkLabel_WmDU">Tutorial 6 — Uncertain Trajectories</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/sisepuede/tutorials/rendered/t1"><span title="rendered" class="categoryLinkLabel_W154">rendered</span></a></div></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/sisepuede/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Part I — Foundations</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Architecture Overview</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Architecture Overview</h1></header><p>SISEPUEDE is a hybrid <strong>Python + Julia</strong> framework organized around a deterministic 8-phase pipeline. Python owns the schema, sectoral models, orchestration, and I/O. Julia owns one narrow but computationally demanding task: solving the energy-system linear program via <strong>NeMo-Mod</strong>. The two runtimes communicate through a temporary <strong>SQLite database</strong> — no shared memory, no direct function calls across the language boundary.</p>
+<p>Understanding this pipeline end-to-end tells you where any given variable comes from, where any given output is written, and how policy interventions (transformers) slot in between phases.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="learning-objectives">Learning objectives<a href="#learning-objectives" class="hash-link" aria-label="Direct link to Learning objectives" title="Direct link to Learning objectives" translate="no">​</a></h2>
+<ul>
+<li class="">Trace the 8-phase execution pipeline from schema compilation to database output.</li>
+<li class="">Explain what Python handles, what Julia handles, and how the SQLite handshake bridges them.</li>
+<li class="">Name the three key Python orchestrators (<code>ModelAttributes</code>, <code>SISEPUEDEModels</code>, <code>SISEPUEDEExperimentalManager</code>) and state each one&#x27;s responsibility.</li>
+<li class="">Read the fixed sectoral execution order and justify it from cross-sector data dependencies.</li>
+<li class="">Identify which phase is the entry point for transformer-based policy analysis.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-8-phases">The 8 phases<a href="#the-8-phases" class="hash-link" aria-label="Direct link to The 8 phases" title="Direct link to The 8 phases" translate="no">​</a></h2>
+<pipelinephase n="{0}">
+<p><strong>Phase 0 — Schema compilation (<code>ModelAttributes</code>)</strong>
+Before any data is touched, <code>ModelAttributes</code> reads all attribute tables from <code>dir_attributes</code> and builds the complete variable registry: categories, units, GWP values, and the naming schema that every sectoral model must respect. This object is instantiated once and passed to every downstream component.</p>
+<hr>
+<pipelinephase n="{1}">
+<p><strong>Phase 1 — Template ingestion (<code>BaseInputDatabase</code>)</strong>
+Country-level Excel templates are read for each sector and region. <code>InputTemplate.build_inputs_by_strategy()</code> produces a long DataFrame keyed by <code>(strategy_id, variable_spec, time_period)</code>. The result is <code>base_input_database.database</code> — the baseline trajectory for every variable, before any uncertainty sampling.</p>
+<hr>
+<pipelinephase n="{2}">
+<p><strong>Phase 2 — Uncertainty sampling (<code>FutureTrajectories</code> / <code>LHSDesign</code>)</strong>
+SISEPUEDE draws two separate Latin Hypercube samples: one for <strong>lever-effect uncertainties</strong> (<code>arr_lhs_l</code>) and one for <strong>exogenous uncertainties</strong> (<code>arr_lhs_x</code>). Both arrays live in [0, 1] with shape <code>(n_trials, n_factors)</code>. <code>future_id = 0</code> is always reserved for the deterministic baseline — no sampling applied.</p>
+<hr>
+<pipelinephase n="{3}">
+<p><strong>Phase 3 — Primary key index (<code>OrderedDirectProductTable</code>)</strong>
+The three experimental dimensions — <code>design_id</code>, <code>strategy_id</code>, <code>future_id</code> — are encoded as a single mixed-radix integer <code>primary_id</code>. No full scenario table is materialized in memory; instead, <code>get_dims_from_key(primary_id)</code> and <code>get_key_value(**dims)</code> provide O(n_dims) lookups on demand. Region is excluded from <code>primary_id</code>; runs are addressed as <code>(region, primary_id)</code>.</p>
+<hr>
+<pipelinephase n="{4}">
+<p><strong>Phase 4 — Input materialization</strong>
+On demand for each <code>(region, primary_id)</code>, SISEPUEDE decodes the primary key back to <code>(design, strategy, future)</code>, retrieves the matching LHS rows, and calls <code>future_trajectories.generate_future_from_lhs_vector(lhs_x, lhs_l)</code> to produce the perturbed wide-format input DataFrame that will feed the sectoral models.</p>
+<hr>
+<pipelinephase n="{5}">
+<p><strong>Phase 5 — Sectoral model execution (<code>SISEPUEDEModels</code>)</strong>
+All six sectoral models run in a fixed dependency order (detailed in the Execution order section below). Each model accepts the wide-format input DataFrame and returns a wide-format output DataFrame of emissions and intermediate variables. <code>SISEPUEDEModels</code> orchestrates the handoffs and assembles the full output table.</p>
+<hr>
+<pipelinephase n="{6}">
+<p><strong>Phase 6 — Julia / NeMo-Mod LP (Energy Production)</strong>
+The electricity dispatch model is the only component that crosses the language boundary. Python writes the energy-system problem to a temporary SQLite database; Julia reads it, solves the LP via NeMo-Mod, and writes results back to the same database; Python then reads the solution. <code>SISEPUEDEModels.__init__</code> accepts <code>fp_julia</code>, <code>fp_nemomod_reference_files</code>, and <code>fp_nemomod_temp_sqlite_db</code> to configure this boundary. Setting <code>allow_electricity_run=False</code> skips Julia entirely, which is useful for development and testing.</p>
+<hr>
+<pipelinephase n="{7}">
+<p><strong>Phase 7 — Output database (<code>SISEPUEDEOutputDatabase</code>)</strong>
+Results are written in batches to a SQLite (via SQLAlchemy) or CSV backend. Key tables include <code>MODEL_OUTPUT</code>, <code>ATTRIBUTE_STRATEGY</code>, <code>LHC_SAMPLES_LEVER_EFFECTS</code>, <code>LHC_SAMPLES_EXOGENOUS_UNCERTAINTIES</code>, and <code>MODEL_BASE_INPUT_DATABASE</code>. Each session carries a unique <code>AnalysisID</code> for full reproducibility.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="python-vs-julia-boundary">Python vs Julia boundary<a href="#python-vs-julia-boundary" class="hash-link" aria-label="Direct link to Python vs Julia boundary" title="Direct link to Python vs Julia boundary" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Concern</th><th>Runtime</th></tr></thead><tbody><tr><td>Variable schema, attribute tables</td><td>Python (<code>ModelAttributes</code>)</td></tr><tr><td>All sectoral emission models</td><td>Python (<code>AFOLU</code>, <code>CircularEconomy</code>, <code>EnergyConsumption</code>, <code>IPPU</code>, <code>Socioeconomic</code>)</td></tr><tr><td>LHS sampling, primary key indexing</td><td>Python</td></tr><tr><td>Orchestration and I/O</td><td>Python (<code>SISEPUEDEModels</code>, <code>SISEPUEDEExperimentalManager</code>)</td></tr><tr><td>Energy Production LP (electricity dispatch)</td><td><strong>Julia</strong> (NeMo-Mod)</td></tr><tr><td>Handshake medium</td><td>Temporary <strong>SQLite database</strong></td></tr></tbody></table>
+<p>The Julia files live under <code>sisepuede/julia/</code> and include <code>call_nemomod.jl</code>, <code>setup_analysis.jl</code>, <code>setup_runs.jl</code>, and <code>support_functions.jl</code>. Python manages the Julia process lifecycle through <code>pyjuliapkg</code>. The rest of the codebase has no Julia dependency — you can run all non-electricity models without installing Julia.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-orchestrators">Key orchestrators<a href="#key-orchestrators" class="hash-link" aria-label="Direct link to Key orchestrators" title="Direct link to Key orchestrators" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p><strong><code>ModelAttributes</code></strong> (<code>sisepuede/core/model_attributes.py</code>) — The schema registry. Instantiated first; passed to every other component. Reads all attribute CSVs, builds <code>dict_variable_fields_to_model_variables</code>, and runs 13 cross-table consistency checks at init time. Nothing else can start without it.</p>
+</li>
+<li class="">
+<p><strong><code>SISEPUEDEModels</code></strong> (<code>sisepuede/manager/sisepuede_models.py</code>) — The sectoral executor. Holds instances of all six sectoral model classes and exposes a single <code>project()</code> call that runs them in the correct dependency order, assembles outputs, and returns a unified wide-format DataFrame.</p>
+</li>
+<li class="">
+<p><strong><code>SISEPUEDEExperimentalManager</code></strong> (<code>sisepuede/manager/sisepuede.py</code>) — The experiment manager. Owns the full pipeline from baseline database through LHS sampling, primary-key encoding, input materialization, calls to <code>SISEPUEDEModels</code>, and final output batching. A single <code>primary_id</code> run is reproducible at any time via <code>generate_scenario_database_from_primary_key()</code>.</p>
+</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="execution-order">Execution order<a href="#execution-order" class="hash-link" aria-label="Direct link to Execution order" title="Direct link to Execution order" translate="no">​</a></h2>
+<p>Sectoral models run in a fixed sequence because later models consume outputs from earlier ones. The dependency graph is acyclic and looks like this:</p>
+<!-- -->
+<p><strong>Why this order?</strong></p>
+<ul>
+<li class=""><strong>Socioeconomic first</strong> — GDP, population, and GDP/capita scalars are needed by every sectoral model to drive demand. Nothing else can run without them.</li>
+<li class=""><strong>AFOLU second</strong> — Land use, crop yields, and livestock outputs determine agricultural waste and organic content flowing into Circular Economy.</li>
+<li class=""><strong>Circular Economy third</strong> — Solid waste, wastewater, and industrial process outputs feed into energy demand calculations and provide recycled-material fractions.</li>
+<li class=""><strong>Energy Production fourth</strong> — The NeMo-Mod LP needs demand projections from all prior sectors. Its output (the electricity supply mix) feeds Energy Consumption.</li>
+<li class=""><strong>Energy Consumption fifth</strong> — Stationary combustion, transport, and fugitive emissions (<code>FGTV</code>, <code>INEN</code>, <code>SCOE</code>, <code>TRNS</code>, <code>TRDE</code>) are calculated once the electricity mix is known.</li>
+<li class=""><strong>IPPU last</strong> — Industrial processes and product use, including F-gases, cement, and CCS, pull recycled material fractions from Circular Economy output. Running IPPU last ensures those fractions are available.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-the-codebase">In the codebase<a href="#in-the-codebase" class="hash-link" aria-label="Direct link to In the codebase" title="Direct link to In the codebase" translate="no">​</a></h2>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>In the codebase</div><div class="admonitionContent_BuS1">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Component</th><th>File</th><th>Key entry point</th></tr></thead><tbody><tr><td><code>ModelAttributes</code></td><td><code>sisepuede/core/model_attributes.py</code></td><td><code>ModelAttributes.__init__(dir_attributes)</code></td></tr><tr><td><code>SISEPUEDEModels</code></td><td><code>sisepuede/manager/sisepuede_models.py</code></td><td><code>SISEPUEDEModels.project()</code></td></tr><tr><td><code>SISEPUEDEExperimentalManager</code></td><td><code>sisepuede/manager/sisepuede.py</code></td><td><code>generate_scenario_database_from_primary_key()</code></td></tr><tr><td>Julia NeMo-Mod entry</td><td><code>sisepuede/julia/call_nemomod.jl</code></td><td>Called by Python via <code>pyjuliapkg</code></td></tr><tr><td>Julia support</td><td><code>sisepuede/julia/support_functions.jl</code></td><td>Utility functions for NeMo-Mod setup</td></tr></tbody></table></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="recap">Recap<a href="#recap" class="hash-link" aria-label="Direct link to Recap" title="Direct link to Recap" translate="no">​</a></h2>
+<ul>
+<li class="">SISEPUEDE runs an <strong>8-phase pipeline</strong> from schema compilation (Phase 0) to output persistence (Phase 7).</li>
+<li class=""><strong>Python</strong> handles schema, sectoral models, sampling, orchestration, and I/O. <strong>Julia</strong> handles the electricity LP (NeMo-Mod) via an SQLite handshake.</li>
+<li class="">The three key Python orchestrators are <code>ModelAttributes</code> (schema), <code>SISEPUEDEModels</code> (run), and <code>SISEPUEDEExperimentalManager</code> (experiment pipeline).</li>
+<li class="">Sectoral execution order is fixed: Socioeconomic → AFOLU → Circular Economy → Energy Production → Energy Consumption → IPPU — driven by data dependencies that flow strictly forward.</li>
+<li class="">You can run all non-electricity models without Julia by passing <code>allow_electricity_run=False</code> to <code>SISEPUEDEModels</code>.</li>
+</ul>
+<hr>
+<quiz>
+  {{
+    &quot;questions&quot;: [
+      {{
+        &quot;id&quot;: &quot;arch-q1&quot;,
+        &quot;text&quot;: &quot;In which phase does SISEPUEDE encode the combination of design_id, strategy_id, and future_id into a single integer?&quot;,
+        &quot;options&quot;: [
+          &quot;Phase 1 — Template ingestion&quot;,
+          &quot;Phase 2 — Uncertainty sampling&quot;,
+          &quot;Phase 3 — Primary key index&quot;,
+          &quot;Phase 5 — Sectoral model execution&quot;
+        ],
+        &quot;correct&quot;: 2,
+        &quot;explanation&quot;: &quot;Phase 3 uses OrderedDirectProductTable to encode the three experimental dimensions as a mixed-radix primary_id. No full scenario table is materialized — only the index structure is built.&quot;
+      }},
+      {{
+        &quot;id&quot;: &quot;arch-q2&quot;,
+        &quot;text&quot;: &quot;Which of the following best describes how Python and Julia communicate in SISEPUEDE?&quot;,
+        &quot;options&quot;: [
+          &quot;Python calls Julia functions directly using a foreign function interface.&quot;,
+          &quot;Julia writes results to a shared in-memory DataFrame that Python reads.&quot;,
+          &quot;Python writes the energy problem to a temporary SQLite database; Julia reads, solves, and writes back; Python reads the solution.&quot;,
+          &quot;Julia spawns a subprocess that posts results to a REST API consumed by Python.&quot;
+        ],
+        &quot;correct&quot;: 2,
+        &quot;explanation&quot;: &quot;The handshake is entirely through a temporary SQLite database (fp_nemomod_temp_sqlite_db). This decouples the two runtimes cleanly — no shared memory or network calls required.&quot;
+      }},
+      {{
+        &quot;id&quot;: &quot;arch-q3&quot;,
+        &quot;text&quot;: &quot;Why does IPPU run last in the sectoral execution order?&quot;,
+        &quot;options&quot;: [
+          &quot;IPPU is the most computationally expensive model and runs best when memory is freed by earlier models.&quot;,
+          &quot;IPPU pulls recycled material fractions from Circular Economy output, so it must wait for that output to be available.&quot;,
+          &quot;IPPU requires the electricity supply mix from Energy Production to calculate F-gas emissions.&quot;,
+          &quot;IPPU is optional and only runs if enabled in the configuration file.&quot;
+        ],
+        &quot;correct&quot;: 1,
+        &quot;explanation&quot;: &quot;IPPU explicitly consumes recycled-material fractions produced by CircularEconomy.project(). Running IPPU last ensures those fractions are fully resolved before industrial process calculations begin.&quot;
+      }}
+    ]
+  }}
+</quiz>
+</pipelinephase></pipelinephase></pipelinephase></pipelinephase></pipelinephase></pipelinephase></pipelinephase></pipelinephase></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/sisepuede-framework/sisepuede/tree/main/course/docs/01-foundations/02-architecture.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/sisepuede/foundations/what-is-sisepuede"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">What is SISEPUEDE?</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/sisepuede/foundations/installation"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Installation &amp; First Steps</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#learning-objectives" class="table-of-contents__link toc-highlight">Learning objectives</a></li><li><a href="#the-8-phases" class="table-of-contents__link toc-highlight">The 8 phases</a></li><li><a href="#python-vs-julia-boundary" class="table-of-contents__link toc-highlight">Python vs Julia boundary</a></li><li><a href="#key-orchestrators" class="table-of-contents__link toc-highlight">Key orchestrators</a></li><li><a href="#execution-order" class="table-of-contents__link toc-highlight">Execution order</a></li><li><a href="#in-the-codebase" class="table-of-contents__link toc-highlight">In the codebase</a></li><li><a href="#recap" class="table-of-contents__link toc-highlight">Recap</a></li></ul></div></div></div></div></main></div></div></div></div>
+</body>
+</html>

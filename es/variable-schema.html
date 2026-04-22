@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="es" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-variable-schema/variable-schema" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.0">
+<title data-rh="true">Esquema de Nombrado de Variables | SISEPUEDE Course</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://sisepuede-framework.github.io/sisepuede/es/img/social-card.png"><meta data-rh="true" name="twitter:image" content="https://sisepuede-framework.github.io/sisepuede/es/img/social-card.png"><meta data-rh="true" property="og:url" content="https://sisepuede-framework.github.io/sisepuede/es/variable-schema"><meta data-rh="true" property="og:locale" content="es"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="es"><meta data-rh="true" name="docsearch:language" content="es"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Esquema de Nombrado de Variables | SISEPUEDE Course"><meta data-rh="true" name="description" content="Cada columna en un DataFrame de entrada o salida de SISEPUEDE lleva un nombre que no es arbitrario — es una especificación legible por máquina de sector, subsector, descriptor, unidades y categoría. El patrón general es {descriptor}{unitsorqualifier}{$CAT-X$}, donde $CAT-X$ es un token que el framework expande en un nombre de columna concreto por categoría en el momento de instanciar el modelo. Comprender este esquema es el prerrequisito para leer tablas de atributos, escribir plantillas de entrada y depurar errores de campos no coincidentes."><meta data-rh="true" property="og:description" content="Cada columna en un DataFrame de entrada o salida de SISEPUEDE lleva un nombre que no es arbitrario — es una especificación legible por máquina de sector, subsector, descriptor, unidades y categoría. El patrón general es {descriptor}{unitsorqualifier}{$CAT-X$}, donde $CAT-X$ es un token que el framework expande en un nombre de columna concreto por categoría en el momento de instanciar el modelo. Comprender este esquema es el prerrequisito para leer tablas de atributos, escribir plantillas de entrada y depurar errores de campos no coincidentes."><link data-rh="true" rel="icon" href="/sisepuede/es/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://sisepuede-framework.github.io/sisepuede/es/variable-schema"><link data-rh="true" rel="alternate" href="https://sisepuede-framework.github.io/sisepuede/variable-schema" hreflang="en"><link data-rh="true" rel="alternate" href="https://sisepuede-framework.github.io/sisepuede/es/variable-schema" hreflang="es"><link data-rh="true" rel="alternate" href="https://sisepuede-framework.github.io/sisepuede/variable-schema" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Parte II — Esquema de Variables","item":"https://sisepuede-framework.github.io/sisepuede/es/variable-schema/"}]}</script><link rel="stylesheet" href="/sisepuede/es/assets/css/styles.08bf744f.css">
+<script src="/sisepuede/es/assets/js/runtime~main.78a8d9a0.js" defer="defer"></script>
+<script src="/sisepuede/es/assets/js/main.257ae51a.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/sisepuede/es/img/sisepuede-logo.svg"><div role="region" aria-label="Saltar al contenido principal"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Saltar al contenido principal</a></div><nav aria-label="Principal" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Alternar barra lateral" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/sisepuede/es/"><div class="navbar__logo"><img src="/sisepuede/es/img/sisepuede-logo.svg" alt="SISEPUEDE" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/sisepuede/es/img/sisepuede-logo.svg" alt="SISEPUEDE" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">SISEPUEDE Course</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/sisepuede/es/">Course</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://sisepuede.readthedocs.io/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Reference Docs<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><a href="https://github.com/jcsyme/sisepuede" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>Español</a><ul class="dropdown__menu"><li><a href="/sisepuede/variable-schema" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="en">English</a></li><li><a href="/sisepuede/es/variable-schema" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="es">Español</a></li></ul></div><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Cambiar entre modo oscuro y claro (actualmente system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Volver al principio" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Barra lateral de Documentos" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/sisepuede/es/"><span title="Bienvenida" class="linkLabel_WmDU">Bienvenida</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/sisepuede/es/foundations/what-is-sisepuede"><span title="Parte I — Fundamentos" class="categoryLinkLabel_W154">Parte I — Fundamentos</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/es/foundations/what-is-sisepuede"><span title="¿Qué es SISEPUEDE?" class="linkLabel_WmDU">¿Qué es SISEPUEDE?</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/es/foundations/architecture"><span title="Visión general de la arquitectura" class="linkLabel_WmDU">Visión general de la arquitectura</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/es/foundations/installation"><span title="Instalación y primeros pasos" class="linkLabel_WmDU">Instalación y primeros pasos</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible menu__list-item-collapsible--active"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" aria-current="page" href="/sisepuede/es/variable-schema"><span title="Parte II — Esquema de Variables" class="categoryLinkLabel_W154">Parte II — Esquema de Variables</span></a><button aria-label="Colapsar categoría &#x27;Parte II — Esquema de Variables&#x27; de la barra lateral" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/es/variable-schema/model-attributes"><span title="ModelAttributes" class="linkLabel_WmDU">ModelAttributes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/es/variable-schema/categories-units"><span title="Categorías y Unidades" class="linkLabel_WmDU">Categorías y Unidades</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/sisepuede/es/sectoral-models/afolu"><span title="Parte III — Modelos Sectoriales" class="categoryLinkLabel_W154">Parte III — Modelos Sectoriales</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/es/sectoral-models/afolu"><span title="AFOLU — Agricultura, Silvicultura y Otros Usos de la Tierra" class="linkLabel_WmDU">AFOLU — Agricultura, Silvicultura y Otros Usos de la Tierra</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/es/sectoral-models/circular-economy"><span title="Economía Circular — Residuos y Aguas Residuales" class="linkLabel_WmDU">Economía Circular — Residuos y Aguas Residuales</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/es/sectoral-models/energy-consumption"><span title="Consumo de Energía — Subsectores del Lado de la Demanda" class="linkLabel_WmDU">Consumo de Energía — Subsectores del Lado de la Demanda</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/es/sectoral-models/energy-production"><span title="Producción de Energía — LP en Julia/NeMo-Mod" class="linkLabel_WmDU">Producción de Energía — LP en Julia/NeMo-Mod</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/es/sectoral-models/ippu"><span title="IPPU — Procesos Industriales y Uso de Productos" class="linkLabel_WmDU">IPPU — Procesos Industriales y Uso de Productos</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/es/sectoral-models/socioeconomic"><span title="Socioeconómico — Drivers a través de todos los sectores" class="linkLabel_WmDU">Socioeconómico — Drivers a través de todos los sectores</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/sisepuede/es/transformers/transformer-vs-transformation"><span title="Parte IV — Transformadores y Estrategias" class="categoryLinkLabel_W154">Parte IV — Transformadores y Estrategias</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/es/transformers/transformer-vs-transformation"><span title="Transformador vs Transformación" class="linkLabel_WmDU">Transformador vs Transformación</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/es/transformers/strategies"><span title="Estrategias — Componiendo Transformaciones" class="linkLabel_WmDU">Estrategias — Componiendo Transformaciones</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/sisepuede/es/dmdu/experimental-design"><span title="Parte V — DMDU" class="categoryLinkLabel_W154">Parte V — DMDU</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/es/dmdu/experimental-design"><span title="Diseño Experimental — LHS, Estrategias y Futuros" class="linkLabel_WmDU">Diseño Experimental — LHS, Estrategias y Futuros</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/sisepuede/es/tutorials/sector-models"><span title="Parte VI — Tutoriales Prácticos" class="categoryLinkLabel_W154">Parte VI — Tutoriales Prácticos</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/es/tutorials/sector-models"><span title="Tutorial 1 — Modelos Sectoriales" class="linkLabel_WmDU">Tutorial 1 — Modelos Sectoriales</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/es/tutorials/model-attributes"><span title="Tutorial 2 — ModelAttributes" class="linkLabel_WmDU">Tutorial 2 — ModelAttributes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/es/tutorials/transformations"><span title="Tutorial 3 — Trabajando con Transformaciones" class="linkLabel_WmDU">Tutorial 3 — Trabajando con Transformaciones</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/es/tutorials/sisepuede-object"><span title="Tutorial 4 — El Objeto SISEPUEDE" class="linkLabel_WmDU">Tutorial 4 — El Objeto SISEPUEDE</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/es/tutorials/article-6"><span title="Tutorial 5 — Análisis del Artículo 6 de París" class="linkLabel_WmDU">Tutorial 5 — Análisis del Artículo 6 de París</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/sisepuede/es/tutorials/uncertain-trajectories"><span title="Tutorial 6 — Trayectorias Inciertas" class="linkLabel_WmDU">Tutorial 6 — Trayectorias Inciertas</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/sisepuede/es/tutorials/rendered/t1"><span title="rendered" class="categoryLinkLabel_W154">rendered</span></a></div></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Rastro de navegación"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Página de Inicio" class="breadcrumbs__link" href="/sisepuede/es/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Parte II — Esquema de Variables</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">En esta página</button></div><div class="theme-doc-markdown markdown"><header><h1>Esquema de Nombrado de Variables</h1></header><p>Cada columna en un DataFrame de entrada o salida de SISEPUEDE lleva un nombre que no es arbitrario — es una <strong>especificación legible por máquina</strong> de sector, subsector, descriptor, unidades y categoría. El patrón general es <code>{sector_prefix}_{descriptor}_{units_or_qualifier}_{$CAT-X$}</code>, donde <code>$CAT-X$</code> es un token que el framework expande en un nombre de columna concreto por categoría en el momento de instanciar el modelo. Comprender este esquema es el prerrequisito para leer tablas de atributos, escribir plantillas de entrada y depurar errores de campos no coincidentes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="objetivos-de-aprendizaje">Objetivos de aprendizaje<a href="#objetivos-de-aprendizaje" class="hash-link" aria-label="Enlace directo al Objetivos de aprendizaje" title="Enlace directo al Objetivos de aprendizaje" translate="no">​</a></h2>
+<ul>
+<li class="">Descomponer el nombre de cualquier campo de variable de SISEPUEDE en sus partes constituyentes.</li>
+<li class="">Identificar la abreviatura del subsector a partir del primer segmento del nombre del campo.</li>
+<li class="">Explicar qué son los tokens <code>$CAT-X$</code> y cómo <code>build_fields()</code> los expande a nombres de columnas concretos.</li>
+<li class="">Describir el rol de <code>ModelVariable</code> y <code>VariableSchema</code> en la jerarquía de clases.</li>
+<li class="">Usar <code>dict_variable_fields_to_model_variables</code> para realizar una búsqueda inversa de un nombre de campo a su <code>ModelVariable</code>.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-convención-de-nombrado">La convención de nombrado<a href="#la-convención-de-nombrado" class="hash-link" aria-label="Enlace directo al La convención de nombrado" title="Enlace directo al La convención de nombrado" translate="no">​</a></h2>
+<p>Los nombres de campos de variables de SISEPUEDE siguen una estructura fija delimitada por guiones bajos. El <strong>primer segmento</strong> es siempre la abreviatura del subsector — un código de dos o cuatro letras definido en <code>sisepuede/attributes/attribute_subsector.csv</code>. Lo que sigue es un descriptor que identifica la cantidad, y luego uno o más calificadores para unidades y categorías.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Abreviatura del subsector</th><th>Subsector</th><th>Sector</th></tr></thead><tbody><tr><td><code>agrc</code></td><td>Agricultura</td><td>AFOLU</td></tr><tr><td><code>lvst</code></td><td>Ganadería</td><td>AFOLU</td></tr><tr><td><code>lndu</code></td><td>Uso de Suelo</td><td>AFOLU</td></tr><tr><td><code>frst</code></td><td>Bosques</td><td>AFOLU</td></tr><tr><td><code>lsmm</code></td><td>Manejo de Estiércol Ganadero</td><td>AFOLU</td></tr><tr><td><code>soil</code></td><td>Manejo de Suelos</td><td>AFOLU</td></tr><tr><td><code>wali</code></td><td>Residuos Líquidos</td><td>Economía Circular</td></tr><tr><td><code>waso</code></td><td>Residuos Sólidos</td><td>Economía Circular</td></tr><tr><td><code>trww</code></td><td>Tratamiento de Aguas Residuales</td><td>Economía Circular</td></tr><tr><td><code>enfu</code></td><td>Combustibles Energéticos</td><td>Energía</td></tr><tr><td><code>fgtv</code></td><td>Emisiones Fugitivas</td><td>Energía</td></tr><tr><td><code>inen</code></td><td>Energía Industrial</td><td>Energía</td></tr><tr><td><code>scoe</code></td><td>Combustión Estacionaria y Otros Usos Energéticos</td><td>Energía</td></tr><tr><td><code>trns</code></td><td>Transporte</td><td>Energía</td></tr><tr><td><code>entc</code></td><td>Tecnología Energética</td><td>Energía</td></tr><tr><td><code>ippu</code></td><td>IPPU</td><td>IPPU</td></tr><tr><td><code>econ</code></td><td>Economía</td><td>Socioeconómico</td></tr><tr><td><code>gnrl</code></td><td>General</td><td>Socioeconómico</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ejemplos-resueltos">Ejemplos resueltos<a href="#ejemplos-resueltos" class="hash-link" aria-label="Enlace directo al Ejemplos resueltos" title="Enlace directo al Ejemplos resueltos" translate="no">​</a></h3>
+<p>&lt;VariableTable rows={[
+{
+field: &quot;pop_lvst_initial_$CAT-LIVESTOCK$&quot;,
+expanded: &quot;pop_lvst_initial_buffalo (+ uno por categoría de ganado)&quot;,
+description: &quot;Número inicial de cabezas de cada tipo de ganado en t=0&quot;,
+unit: &quot;cabezas&quot;,
+type: &quot;Entrada&quot;
+},
+{
+field: &quot;ef_agrc_anaerobicdom_$CAT-AGRICULTURE$<em>$UNIT-MASS$</em>$EMISSION-GAS$<em>$UNIT-AREA$&quot;,
+expanded: &quot;ef_agrc_anaerobicdom_rice_kg_ch4_ha&quot;,
+description: &quot;Factor de emisión de CH4 por descomposición anaerobia de cultivos de arroz&quot;,
+unit: &quot;kg CH4 / ha&quot;,
+type: &quot;Entrada&quot;
+},
+{
+field: &quot;ef_enfu_combustion</em>$UNIT-MASS$<em>$EMISSION-GAS$<em>per</em>$UNIT-ENERGY$</em>$CAT-FUEL$&quot;,
+expanded: &quot;ef_enfu_combustion_tonne_co2_per_pj_fuel_diesel (+ uno por combustible)&quot;,
+description: &quot;Factor de emisión de CO2 por combustión, por tipo de combustible&quot;,
+unit: &quot;tonne CO2 / PJ&quot;,
+type: &quot;Entrada&quot;
+},
+{
+field: &quot;scalar_scoe_appliance_energy_demand_$CAT-SCOE$&quot;,
+expanded: &quot;scalar_scoe_appliance_energy_demand_commercial (+ uno por categoría SCOE)&quot;,
+description: &quot;Escalar que modifica la demanda energética no térmica por eficiencia de electrodomésticos&quot;,
+unit: &quot;adimensional&quot;,
+type: &quot;Entrada&quot;
+},
+{
+field: &quot;ef_ippu_$UNIT-MASS$<em>$EMISSION-GAS$<em>per</em>$UNIT-MASS$<em>production</em>$CAT-INDUSTRY$&quot;,
+expanded: &quot;ef_ippu_tonne_ch4_per_tonne_production_chemicals&quot;,
+description: &quot;Factor de emisión de CH4 por proceso, por tonelada de producción industrial&quot;,
+unit: &quot;tonne CH4 / tonne producto&quot;,
+type: &quot;Entrada&quot;
+},
+{
+field: &quot;ef_fgtv_production_flaring</em>$UNIT-MASS$<em>$EMISSION-GAS$<em>per</em>$UNIT-VOLUME$</em>$CAT-FUEL$&quot;,
+expanded: &quot;ef_fgtv_production_flaring_tonne_ch4_per_m3_fuel_natural_gas&quot;,
+description: &quot;Factor de emisión de CH4 por quema en antorcha, por volumen de combustible producido&quot;,
+unit: &quot;tonne CH4 / m3&quot;,
+type: &quot;Entrada&quot;
+}
+]} /&gt;</p>
+<p>La forma &quot;expandida&quot; es la que aparece efectivamente como encabezado de columna en el DataFrame. La forma cruda del esquema con tokens <code>$...$</code> es la que se almacena en el CSV de atributos y en <code>ModelVariable.schema</code>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="tokens-de-variableschema">Tokens de VariableSchema<a href="#tokens-de-variableschema" class="hash-link" aria-label="Enlace directo al Tokens de VariableSchema" title="Enlace directo al Tokens de VariableSchema" translate="no">​</a></h2>
+<p>Los tokens son subcadenas rodeadas por delimitadores <code>$</code>. Actúan como <strong>marcadores de posición</strong> para una dimensión de variabilidad. Cuando se llama a <code>build_fields()</code>, cada token es reemplazado por cada valor concreto en la tabla de categoría o unidad correspondiente.</p>
+<p>Las dos familias principales de tokens son:</p>
+<p><strong>Tokens de categoría</strong> — se expanden sobre las filas de una tabla de atributos de categoría (por ejemplo, <code>attribute_cat_livestock.csv</code>):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Token</th><th>Tabla de atributos de categoría</th><th>Valores de ejemplo</th></tr></thead><tbody><tr><td><code>$CAT-AGRICULTURE$</code></td><td><code>attribute_cat_agriculture.csv</code></td><td><code>bevs_and_spices</code>, <code>fiber</code>, <code>rice</code>, <code>vegetables</code> …</td></tr><tr><td><code>$CAT-LIVESTOCK$</code></td><td><code>attribute_cat_livestock.csv</code></td><td><code>buffalo</code>, <code>cattle_dairy</code>, <code>cattle_nondairy</code>, <code>goats</code> …</td></tr><tr><td><code>$CAT-INDUSTRY$</code></td><td><code>attribute_cat_industry.csv</code></td><td><code>cement</code>, <code>chemicals</code>, <code>metals</code>, <code>plastic</code> …</td></tr><tr><td><code>$CAT-FUEL$</code></td><td><code>attribute_cat_fuel.csv</code></td><td><code>fuel_coal</code>, <code>fuel_diesel</code>, <code>fuel_natural_gas</code> …</td></tr><tr><td><code>$CAT-SCOE$</code></td><td><code>attribute_cat_scoe.csv</code></td><td><code>commercial</code>, <code>industrial</code>, <code>residential</code> …</td></tr><tr><td><code>$CAT-TRANSPORTATION$</code></td><td><code>attribute_cat_transportation.csv</code></td><td><code>aviation</code>, <code>rail_freight</code>, <code>road_heavy_truck</code> …</td></tr><tr><td><code>$CAT-LANDUSE$</code></td><td><code>attribute_cat_land_use.csv</code></td><td><code>croplands</code>, <code>forests</code>, <code>grasslands</code>, <code>wetlands</code> …</td></tr></tbody></table>
+<p><strong>Tokens de unidad</strong> — se expanden sobre filas de tablas de atributos de unidades (por ejemplo, <code>attribute_unit_mass.csv</code>), pero crucialmente están <strong>fijados a un único valor</strong> en cada definición de variable. El CSV de definición de variables incluye el vínculo entre paréntesis directamente después de la cadena del esquema, por ejemplo: <code>(``$UNIT-MASS$ = tonne``, ``$EMISSION-GAS$ = ch4``)</code>. El token de unidad crea un calificador concreto en el nombre de columna en lugar de multiplicar columnas:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Token</th><th>Se fija al ejemplo</th></tr></thead><tbody><tr><td><code>$UNIT-MASS$</code></td><td><code>tonne</code>, <code>kg</code></td></tr><tr><td><code>$UNIT-ENERGY$</code></td><td><code>pj</code>, <code>tj</code></td></tr><tr><td><code>$UNIT-AREA$</code></td><td><code>ha</code></td></tr><tr><td><code>$UNIT-VOLUME$</code></td><td><code>m3</code></td></tr><tr><td><code>$EMISSION-GAS$</code></td><td><code>ch4</code>, <code>co2</code>, <code>n2o</code></td></tr></tbody></table>
+<p>Un sufijo especial <code>-DIM1</code>, <code>-DIM2</code> (el mecanismo <code>flag_dim</code> en <code>VariableSchema</code>) permite que la misma categoría aparezca dos veces en un esquema — produciendo el producto exterior del espacio de categorías. Por ejemplo, <code>$CAT-LANDUSE-DIM1$_$CAT-LANDUSE-DIM2$</code> genera un campo por cada par ordenado de categorías de uso de suelo, que es como se representan las matrices de transición de uso de suelo.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cómo-build_fields-expande-un-esquema">Cómo <code>build_fields()</code> expande un esquema<a href="#cómo-build_fields-expande-un-esquema" class="hash-link" aria-label="Enlace directo al cómo-build_fields-expande-un-esquema" title="Enlace directo al cómo-build_fields-expande-un-esquema" translate="no">​</a></h3>
+<p><code>ModelVariable.build_fields()</code> (definido en <code>sisepuede/core/model_variable.py</code>, línea 1192) realiza la expansión en el momento de la inicialización:</p>
+<ol>
+<li class="">Comienza con <code>self.schema.schema</code> — la cadena cruda con tokens <code>$...$</code>.</li>
+<li class="">Para cada elemento mutable (token) en el esquema, itera sobre los valores de categoría permitidos (almacenados en <code>self.dict_category_keys</code>) y realiza una sustitución de cadena.</li>
+<li class="">Si la definición de variable restringe categorías (por ejemplo, <code>categories = &quot;fuel_natural_gas&quot;</code> en lugar de <code>&quot;all&quot;</code>), solo se sustituyen esas categorías.</li>
+<li class="">El resultado es una lista de cadenas concretas de nombres de columnas almacenadas en <code>self.fields</code>.</li>
+</ol>
+<p>Por ejemplo, <code>pop_lvst_initial_$CAT-LIVESTOCK$</code> con <code>categories = &quot;all&quot;</code> produce un campo por cada fila en <code>attribute_cat_livestock.csv</code> — <code>pop_lvst_initial_buffalo</code>, <code>pop_lvst_initial_cattle_dairy</code>, y así sucesivamente. El espacio completo (si las categorías no estuvieran restringidas) se almacena por separado en <code>self.fields_space</code>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="la-clase-modelvariable">La clase <code>ModelVariable</code><a href="#la-clase-modelvariable" class="hash-link" aria-label="Enlace directo al la-clase-modelvariable" title="Enlace directo al la-clase-modelvariable" translate="no">​</a></h2>
+<p><code>ModelVariable</code> (definida en <code>sisepuede/core/model_variable.py</code>, a partir de la línea 40) es el único objeto que encapsula todo lo conocido sobre una variable:</p>
+<ul>
+<li class=""><code>modvar.name</code> — el nombre legible de la variable tal como se define en el CSV de atributos (por ejemplo, <code>&quot;Initial Livestock Head Count&quot;</code>).</li>
+<li class=""><code>modvar.schema</code> — una instancia de <code>VariableSchema</code> que envuelve la cadena cruda del esquema.</li>
+<li class=""><code>modvar.fields</code> — la lista de nombres concretos de columnas de DataFrame producidos por <code>build_fields()</code>.</li>
+<li class=""><code>modvar.fields_space</code> — la expansión completa sobre todas las categorías (ignorando restricciones).</li>
+<li class=""><code>modvar.categories_are_restricted</code> — booleano; <code>True</code> si la variable solo aplica a un subconjunto de su categoría primaria.</li>
+<li class="">Propiedades adicionales de la fila de atributos (tipo de variable, valor por defecto, cotas escalares para LHS) son accesibles vía <code>modvar.get_property()</code>.</li>
+</ul>
+<p><code>VariableSchema</code> (línea 1636) es la clase de bajo nivel que parsea la cadena cruda del esquema, identifica elementos mutables mediante una expresión regular <code>$...$</code> y almacena la lista ordenada de tokens en <code>self.mutable_elements_clean_ordered</code>. Es un detalle interno de implementación; casi siempre interactuarás con la interfaz de más alto nivel <code>ModelVariable</code>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="búsqueda-inversa-dict_variable_fields_to_model_variables">Búsqueda inversa: <code>dict_variable_fields_to_model_variables</code><a href="#búsqueda-inversa-dict_variable_fields_to_model_variables" class="hash-link" aria-label="Enlace directo al búsqueda-inversa-dict_variable_fields_to_model_variables" title="Enlace directo al búsqueda-inversa-dict_variable_fields_to_model_variables" translate="no">​</a></h2>
+<p><code>ModelAttributes._initialize_variables_by_subsector()</code> (llamado durante <code>__init__</code>) construye el mapa inverso:</p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">self</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">dict_variable_fields_to_model_variables</span><br></div></code></pre></div></div>
+<p>Este diccionario mapea cada nombre concreto de columna (por ejemplo, <code>&quot;pop_lvst_initial_cattle_dairy&quot;</code>) al nombre del <code>ModelVariable</code> al que pertenece (por ejemplo, <code>&quot;Initial Livestock Head Count&quot;</code>). Se puebla iterando sobre cada <code>ModelVariable</code> en <code>dict_variables</code>, expandiendo sus campos y agregando <code>{field: modvar.name}</code> por cada uno.</p>
+<p>El mapa directo acompañante es:</p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">self</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">dict_model_variables_to_variable_fields</span><br></div></code></pre></div></div>
+<p>el cual mapea <code>modvar.name -&gt; [lista de nombres concretos de campos]</code>.</p>
+<p>Juntos, estos dos diccionarios son la columna vertebral de la validación a nivel de campo y del traspaso de datos entre sectores en todo el modelo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="por-qué-importa-validación-con-falla-rápida">Por qué importa: validación con falla rápida<a href="#por-qué-importa-validación-con-falla-rápida" class="hash-link" aria-label="Enlace directo al Por qué importa: validación con falla rápida" title="Enlace directo al Por qué importa: validación con falla rápida" translate="no">​</a></h2>
+<p>Cuando un modelo sectorial (por ejemplo, <code>AFOLU.project()</code>) lee su DataFrame de entrada, busca los campos requeridos usando <code>ModelAttributes</code>. Si una plantilla tiene una columna mal escrita — digamos <code>pop_lvst_initail_cattle_dairy</code> — simplemente está ausente de <code>dict_variable_fields_to_model_variables</code>. El modelo lanza un error de inmediato o recurre al <code>default_value</code> de la variable (también almacenado en el <code>ModelVariable</code>). De cualquier manera, el esquema impone consistencia: <strong>no puedes pasar una columna que el modelo no reconoce, y no puedes mezclar accidentalmente datos de dos espacios de categorías distintos</strong>.</p>
+<p>Esta es también la razón por la que el esquema debe usarse exactamente como se define en los CSVs de atributos. Inventar un nombre de columna que no esté registrado en <code>ModelAttributes</code> será silenciosamente ignorado o causará una falla dura — no hay un fallback elegante para campos no registrados.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="ejemplo-de-código-buscar-un-campo">Ejemplo de código: buscar un campo<a href="#ejemplo-de-código-buscar-un-campo" class="hash-link" aria-label="Enlace directo al Ejemplo de código: buscar un campo" title="Enlace directo al Ejemplo de código: buscar un campo" translate="no">​</a></h2>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">import</span><span class="token plain"> sisepuede</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">core</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">model_attributes </span><span class="token keyword" style="font-style:italic">as</span><span class="token plain"> ma</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># carga model attributes desde el directorio de atributos por defecto</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">model_attributes </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> ma</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">ModelAttributes</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">&quot;path/to/sisepuede/attributes&quot;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># búsqueda directa: obtener todos los campos concretos de una variable nombrada</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">modvar_name </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">&quot;Initial Livestock Head Count&quot;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">fields </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> model_attributes</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">dict_model_variables_to_variable_fields</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token plain">modvar_name</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># -&gt; [&quot;pop_lvst_initial_buffalo&quot;, &quot;pop_lvst_initial_cattle_dairy&quot;, ...]</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># búsqueda inversa: encontrar a qué ModelVariable pertenece una columna</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">field </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">&quot;pop_lvst_initial_cattle_dairy&quot;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">owner </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> model_attributes</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">dict_variable_fields_to_model_variables</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token plain">field</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># -&gt; &quot;Initial Livestock Head Count&quot;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># acceder al objeto ModelVariable mismo</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">modvar </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> model_attributes</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">dict_variables</span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token plain">owner</span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token keyword" style="font-style:italic">print</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">modvar</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">schema</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">schema</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># -&gt; &quot;pop_lvst_initial_$CAT-LIVESTOCK$&quot;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token keyword" style="font-style:italic">print</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token plain">modvar</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token plain">fields</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic"># -&gt; [&quot;pop_lvst_initial_buffalo&quot;, &quot;pop_lvst_initial_cattle_dairy&quot;, ...]</span><br></div></code></pre></div></div>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>En el código fuente</div><div class="admonitionContent_BuS1"><p>Los tres archivos que implementan todo lo descrito en este módulo:</p><ul>
+<li class=""><strong><code>sisepuede/core/model_variable.py</code></strong> — <code>ModelVariable</code> (línea 40) y <code>VariableSchema</code> (línea 1636). <code>build_fields()</code> se define en la línea 1192 de <code>ModelVariable</code>.</li>
+<li class=""><strong><code>sisepuede/core/model_attributes.py</code></strong> — <code>get_variable_dict()</code> (línea 3899) instancia cada <code>ModelVariable</code> a partir de los CSVs de atributos. <code>_initialize_variables_by_subsector()</code> (alrededor de la línea 1340) construye <code>dict_variable_fields_to_model_variables</code> y su inverso.</li>
+<li class=""><strong><code>sisepuede/attributes/variable_definitions_*.csv</code></strong> — un archivo por subsector (por ejemplo, <code>variable_definitions_af_lvst.csv</code>). Cada fila es una variable: la columna <code>variable_schema</code> contiene la cadena cruda del token; la columna <code>categories</code> contiene la lista de restricción delimitada por barras verticales o <code>&quot;all&quot;</code>.</li>
+</ul></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="recapitulación">Recapitulación<a href="#recapitulación" class="hash-link" aria-label="Enlace directo al Recapitulación" title="Enlace directo al Recapitulación" translate="no">​</a></h2>
+<ul>
+<li class="">Los nombres de campo son determinísticos: primero la abreviatura del subsector, luego el descriptor, después los calificadores de unidad y por último el token de categoría.</li>
+<li class="">Los tokens <code>$CAT-X$</code> son expandidos por <code>build_fields()</code> en una columna concreta por cada valor de categoría permitido en el momento de instanciar el modelo — nunca en tiempo de ejecución.</li>
+<li class="">Los tokens de unidad (<code>$UNIT-MASS$</code>, <code>$EMISSION-GAS$</code>, etc.) están fijados a un único valor por variable y producen un calificador legible en el nombre de columna en lugar de columnas adicionales.</li>
+<li class=""><code>ModelVariable</code> envuelve el esquema, la lista de campos y todos los metadatos de atributos. <code>VariableSchema</code> es su parser interno.</li>
+<li class=""><code>dict_variable_fields_to_model_variables</code> y su inverso son las estructuras de búsqueda centrales utilizadas en cada modelo sectorial.</li>
+<li class="">El esquema se valida en la inicialización de <code>ModelAttributes</code>; un nombre de campo incorrecto se detecta antes de que se ejecute cualquier cálculo de emisiones.</li>
+</ul>
+<hr>
+<p>&lt;Quiz questions={[
+{q: &quot;¿Qué indica siempre el primer segmento de un nombre de campo de variable de SISEPUEDE?&quot;, choices: [
+{text: &quot;El gas de emisión (por ejemplo, ch4, co2)&quot;},
+{text: &quot;La abreviatura del subsector (por ejemplo, lvst, scoe, enfu)&quot;, correct: true, explain: &quot;La abreviatura del subsector es siempre el primer segmento delimitado por guion bajo. Está definida en attribute_subsector.csv y vincula la variable con su sector contenedor y su tabla de categorías.&quot;},
+{text: &quot;El tipo de variable (entrada o salida)&quot;},
+]},
+{q: &quot;Dado el esquema <code>ef_agrc_anaerobicdom_$CAT-AGRICULTURE$_$UNIT-MASS$_$EMISSION-GAS$_$UNIT-AREA$</code> con el vínculo ($UNIT-MASS$ = kg, $EMISSION-GAS$ = ch4, $UNIT-AREA$ = ha) y categories = &#x27;rice&#x27;, ¿cuántos nombres de columna concretos produce build_fields()?&quot;, choices: [
+{text: &quot;Una columna: ef_agrc_anaerobicdom_rice_kg_ch4_ha&quot;, correct: true, explain: &quot;Como categories está restringido a &#x27;rice&#x27; — un único valor — solo se produce una columna. Los tokens de unidad están fijados a valores únicos y no multiplican la salida.&quot;},
+{text: &quot;Tres columnas — una por token de unidad ($UNIT-MASS$, $EMISSION-GAS$, $UNIT-AREA$)&quot;},
+{text: &quot;Una columna por cada fila en attribute_cat_agriculture.csv&quot;},
+]},
+{q: &quot;¿Qué sucede cuando un modelo sectorial encuentra una columna en el DataFrame de entrada que no está registrada en dict_variable_fields_to_model_variables?&quot;, choices: [
+{text: &quot;La columna se agrega automáticamente al esquema&quot;},
+{text: &quot;El modelo lanza un error o ignora silenciosamente la columna y usa el default_value de la variable&quot;, correct: true, explain: &quot;Los campos no registrados no tienen entrada en la búsqueda inversa. El modelo lanza un error duro o recurre al default_value registrado. No hay extensión automática de esquema en tiempo de ejecución.&quot;},
+{text: &quot;ModelAttributes reconstruye su diccionario de variables para incluir el nuevo campo&quot;},
+]}
+]} /&gt;</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/sisepuede-framework/sisepuede/tree/main/course/docs/02-variable-schema/02-variable-schema.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Editar esta página</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Página del documento"><a class="pagination-nav__link pagination-nav__link--prev" href="/sisepuede/es/foundations/installation"><div class="pagination-nav__sublabel">Anterior</div><div class="pagination-nav__label">Instalación y primeros pasos</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/sisepuede/es/variable-schema/model-attributes"><div class="pagination-nav__sublabel">Siguiente</div><div class="pagination-nav__label">ModelAttributes</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#objetivos-de-aprendizaje" class="table-of-contents__link toc-highlight">Objetivos de aprendizaje</a></li><li><a href="#la-convención-de-nombrado" class="table-of-contents__link toc-highlight">La convención de nombrado</a><ul><li><a href="#ejemplos-resueltos" class="table-of-contents__link toc-highlight">Ejemplos resueltos</a></li></ul></li><li><a href="#tokens-de-variableschema" class="table-of-contents__link toc-highlight">Tokens de VariableSchema</a><ul><li><a href="#cómo-build_fields-expande-un-esquema" class="table-of-contents__link toc-highlight">Cómo <code>build_fields()</code> expande un esquema</a></li></ul></li><li><a href="#la-clase-modelvariable" class="table-of-contents__link toc-highlight">La clase <code>ModelVariable</code></a></li><li><a href="#búsqueda-inversa-dict_variable_fields_to_model_variables" class="table-of-contents__link toc-highlight">Búsqueda inversa: <code>dict_variable_fields_to_model_variables</code></a></li><li><a href="#por-qué-importa-validación-con-falla-rápida" class="table-of-contents__link toc-highlight">Por qué importa: validación con falla rápida</a></li><li><a href="#ejemplo-de-código-buscar-un-campo" class="table-of-contents__link toc-highlight">Ejemplo de código: buscar un campo</a></li><li><a href="#recapitulación" class="table-of-contents__link toc-highlight">Recapitulación</a></li></ul></div></div></div></div></main></div></div></div></div>
+</body>
+</html>
