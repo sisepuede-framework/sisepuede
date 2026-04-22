@@ -40,7 +40,7 @@ const config: Config = {
     image: 'img/social-card.png',
     navbar: {
       title: 'SISEPUEDE Course',
-      logo: {alt: 'SISEPUEDE', src: 'img/logo.svg'},
+      logo: {alt: 'SISEPUEDE', src: 'img/sisepuede-logo.svg'},
       items: [
         {type: 'docSidebar', sidebarId: 'courseSidebar', position: 'left', label: 'Course'},
         {href: 'https://sisepuede.readthedocs.io/', label: 'Reference Docs', position: 'right'},

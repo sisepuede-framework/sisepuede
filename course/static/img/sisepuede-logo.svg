@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="SISEPUEDE">
+  <title>SISEPUEDE</title>
+  <!-- 5 sector bars ascending (AFOLU, Energy, IPPU, CE, Socioeconomic) -->
+  <g fill="#0F766E">
+    <rect x="14" y="74" width="12" height="32"/>
+    <rect x="30" y="62" width="12" height="44"/>
+    <rect x="46" y="50" width="12" height="56"/>
+    <rect x="62" y="38" width="12" height="68"/>
+    <rect x="78" y="26" width="12" height="80"/>
+  </g>
+  <!-- Downward decarbonization arrow -->
+  <g fill="#EA580C">
+    <rect x="96" y="14" width="10" height="60"/>
+    <polygon points="86,70 116,70 101,94"/>
+  </g>
+</svg>
