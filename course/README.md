@@ -5,7 +5,7 @@ for the **SISEPUEDE** integrated assessment modeling framework.
 
 ## Prerequisites
 
-- Node.js **18+**
+- Node.js **20+** (required by Docusaurus 3.10)
 - npm (bundled with Node)
 - Python 3 (only for the helper scripts under `scripts/` and `sync_tutorials.py`)
 
