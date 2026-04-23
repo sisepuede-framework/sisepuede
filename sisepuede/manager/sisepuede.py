@@ -850,22 +850,30 @@ class SISEPUEDE:
                 else self.file_struct.fp_log_default
             )
 
-            # setup logger
-            logging.basicConfig(
-                filename = fn_out,
-                filemode = "w",
-                format = format_str,
-                level = logging.DEBUG
-            )
-
             logger = logging.getLogger(namespace)
 
-            # create console handler and set level to debug
+            # Remove any pre-existing handlers so re-running in the same kernel
+            # (e.g. a Jupyter notebook) does not duplicate log output.
+            for handler in list(logger.handlers):
+                logger.removeHandler(handler)
+                handler.close()
+
+            logger.setLevel(logging.DEBUG)
+            logger.propagate = False
+
+            formatter = logging.Formatter(format_str)
+
+            # file handler (replaces logging.basicConfig, which is a no-op on
+            # subsequent calls and would otherwise pin file output to the path
+            # used on the first run).
+            fh = logging.FileHandler(fn_out, mode = "w")
+            fh.setLevel(logging.DEBUG)
+            fh.setFormatter(formatter)
+            logger.addHandler(fh)
+
+            # console handler
             ch = logging.StreamHandler()
             ch.setLevel(logging.DEBUG)
-
-            # create formatter, add to console handler, and add the handler to logger
-            formatter = logging.Formatter(format_str)
             ch.setFormatter(formatter)
             logger.addHandler(ch)
 
