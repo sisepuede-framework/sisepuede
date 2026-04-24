@@ -606,6 +606,7 @@ class EnergyConsumption:
         self.modvar_fgtv_emissions_nmvoc_dtp = "NMVOC Fugitive Emissions from Distribution, Transmission, and Production Leaks"
         self.modvar_fgtv_emissions_nmvoc_flaring = "NMVOC Fugitive Emissions from Flaring"
         self.modvar_fgtv_emissions_nmvoc_venting = "NMVOC Fugitive Emissions from Venting"
+        self.modvar_fgtv_frac_capture_associated_gas = "Fraction Associated Gas Captured via Recovery"
         self.modvar_fgtv_frac_non_fugitive_flared = "Fraction Non-Fugitive :math:\\text{CH}_4 Flared"
         self.modvar_fgtv_frac_reduction_fugitive_leaks = "Reduction in Fugitive Leaks"
 
@@ -2565,12 +2566,31 @@ class EnergyConsumption:
             var_bounds = (0, 1),
         )
 
+        # Gas Flaring Recovery: fraction of associated gas captured at the wellhead
+        # and removed from the emission streams (flaring + venting + fugitive leaks).
+        # Default 0.0 for categories/countries that do not specify it, ensuring
+        # backward compatibility. Applied as a scalar on arr_fgtv_production below.
+        arr_fgtv_frac_capture = self.model_attributes.extract_model_variable(#
+            df_neenergy_trajectories,
+            self.modvar_fgtv_frac_capture_associated_gas,
+            all_cats_missing_val = 0.0,
+            expand_to_all_cats = True,
+            return_type = "array_base",
+            var_bounds = (0, 1),
+        )
+
         vec_fgtv_reduction_leaks = self.model_attributes.extract_model_variable(#
             df_neenergy_trajectories,
             self.modvar_fgtv_frac_reduction_fugitive_leaks,
             return_type = "array_base",
             var_bounds = (0, 1),
         )
+
+        # Apply Gas Flaring Recovery: scale production volume feeding the three
+        # production-emission streams (flaring, venting, fugitive leaks) by
+        # (1 - frac_capture). Distribution and transmission streams are
+        # unaffected because GFR is an upstream (wellhead) intervention.
+        arr_fgtv_production = arr_fgtv_production * (1 - arr_fgtv_frac_capture)
 
         arr_enfu_zeros = np.zeros((len(df_neenergy_trajectories), attr_enfu.n_key_values))
 

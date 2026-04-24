@@ -1075,11 +1075,13 @@ class QAdjuster:
         }
         """;
 
+        sol = None  # initialize before try block to avoid UnboundLocalError
+
         try:
 
             sol = qpsolvers.solve_qp(
-                M, 
-                c, 
+                M,
+                c,
                 A = A,
                 b = b,
                 G = G,
@@ -1096,9 +1098,9 @@ class QAdjuster:
             msg = f"Error trying to solve 'Minimize Calibration Error' problem in QCorrector using qpsolvers.solve_qp: {e}."
             if stop_on_error:
                 raise RuntimeError(msg)
-            
+
             warnings.warn(f"{msg} Trying scipy.optimize.minimize...")
-        
+
 
         if sol is not None:
             sol = self.clean_and_reshape_solver_output(

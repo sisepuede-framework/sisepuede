@@ -1,4 +1,4 @@
-﻿strategy_id,strategy,strategy_code,baseline_strategy_id,Description
+strategy_id,strategy,strategy_code,baseline_strategy_id,Description
 0,Baseline NDP,BASE,1,Base assumptions to which all transformations are applied
 1001,AGRC: All transformations,AGRC:ALL,0,All agricultural transformations
 1002,AGRC: All transformations with partial land use reallocation,AGRC:ALL_PLUR,0,All agricultural transformations
@@ -72,6 +72,7 @@
 3008,FGTV: All Fugitive Emissions transformations with renewable energy production,FGTV:ALL_REP,0,
 3009,FGTV: Maximize flaring,FGTV:INC_FLARE,0,
 3010,FGTV: Maximize flaring with renewable energy production,FGTV:INC_FLARE_REP,0,
+6005,FGTV: Increase gas recovery,FGTV:INC_GAS_RECOVERY,0,"Capture associated gas at the wellhead (e.g., LP compressors, thermal oxidizers, re-injection, direct use). Removes captured fraction from all three production-emission streams."
 3011,FGTV: Minimize leaks,FGTV:DEC_LEAKS,0,
 3012,FGTV: Minimize leaks with renewable energy production,FGTV:DEC_LEAKS_REP,0,
 3013,INEN: All Industrial Energy transformations,INEN:ALL,0,
