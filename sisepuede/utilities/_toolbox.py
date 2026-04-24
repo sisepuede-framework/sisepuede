@@ -4008,29 +4008,29 @@ def setup_logger(
         else format_str
     )
 
-    # configure
-    if isinstance(fn_out, str):
-        logging.basicConfig(
-            filename = fn_out,
-            filemode = "w",
-            format = format_str,
-            level = logging.DEBUG
-        )
-        
-    else:
-        logging.basicConfig(
-            format = format_str,
-            level = logging.DEBUG
-        )
-
     logger = logging.getLogger(namespace)
 
-    # create console handler and set level to debug
+    # Remove any pre-existing handlers so re-running in the same kernel
+    # (e.g. a Jupyter notebook) does not duplicate log output.
+    for handler in list(logger.handlers):
+        logger.removeHandler(handler)
+        handler.close()
+
+    logger.setLevel(logging.DEBUG)
+    logger.propagate = False
+
+    formatter = logging.Formatter(format_str)
+
+    # optional file handler
+    if isinstance(fn_out, str):
+        fh = logging.FileHandler(fn_out, mode = "w")
+        fh.setLevel(logging.DEBUG)
+        fh.setFormatter(formatter)
+        logger.addHandler(fh)
+
+    # console handler
     ch = logging.StreamHandler()
     ch.setLevel(logging.DEBUG)
-
-    # create formatter, add to channel, and the channel to the logger
-    formatter = logging.Formatter(format_str)
     ch.setFormatter(formatter)
     logger.addHandler(ch)
 
