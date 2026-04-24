@@ -3947,6 +3947,10 @@ class ModelAttributes:
             subsector = dict_subsector_abv_to_subsector.get(subsector_abv)
             
             attr_cats = self.get_attribute_table(subsector)
+            # If subsector-specific lookup fails (e.g., backtick key format mismatch),
+            # fall back to passing the full cat dict so ModelVariable can find its category table
+            if attr_cats is None:
+                attr_cats = self.dict_attributes.get(self.attribute_group_key_cat)
 
             # dictionary to pass to each variable
             dict_sector_info = {

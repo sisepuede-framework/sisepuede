@@ -130,6 +130,16 @@ class Configuration:
         # loop over all values to check
         for val in val_list:
 
+            # skip NaN default values that come from empty cells in attribute tables
+            import math
+            try:
+                if isinstance(val, float) and math.isnan(val):
+                    continue
+                if isinstance(val, str) and val.lower() == 'nan':
+                    continue
+            except (TypeError, ValueError):
+                pass
+
             if param in self.params_bool:
                 val = bool(str(val) == "True")
             elif param in self.params_int:
@@ -371,18 +381,30 @@ class Configuration:
             if dict_conf[p] == dict_params_switch[p]:
                 dict_conf.update({p: dict_checks[p].copy()})
 
+        # handle 'first' as a special region token: resolve to the first valid region
+        if dict_conf.get("region") == ["first"]:
+            valid_r = dict_checks.get("region", [])
+            first_region = valid_r[0] if len(valid_r) > 0 else None
+            if first_region is not None:
+                dict_conf.update({"region": [first_region]})
+
         dict_conf = dict(
             (k, self.check_config_defaults(k, v, dict_checks))
             for k, v in dict_conf.items()
         )
 
         # positive integer restriction
+        def _safe_int(v, default=0):
+            try:
+                return int(v)
+            except (TypeError, ValueError):
+                return default
         dict_conf.update({
-            "historical_back_proj_n_periods": max(dict_conf.get("historical_back_proj_n_periods"), 1),
-            "nemomod_solver_time_limit_seconds": max(dict_conf.get("nemomod_solver_time_limit_seconds"), 60), # set minimum solver limit to 60 seconds
-            "num_lhc_samples": max(dict_conf.get("num_lhc_samples", 0), 0),
+            "historical_back_proj_n_periods": max(_safe_int(dict_conf.get("historical_back_proj_n_periods"), 1), 1),
+            "nemomod_solver_time_limit_seconds": max(_safe_int(dict_conf.get("nemomod_solver_time_limit_seconds"), 300), 60),
+            "num_lhc_samples": max(_safe_int(dict_conf.get("num_lhc_samples", 0), 0), 0),
             "save_inputs": bool(str(dict_conf.get("save_inputs")).lower() == "true"),
-            "random_seed": max(dict_conf.get("random_seed"), 1)
+            "random_seed": max(_safe_int(dict_conf.get("random_seed"), 1), 1)
         })
 
 
@@ -467,10 +489,11 @@ class Configuration:
         """
         rv = None
         if val_in is not None:
+            val_str = str(val_in) if not isinstance(val_in, str) else val_in
             rv = (
-                [self.infer_type(x) for x in val_in.split(delim)] 
-                if (delim in val_in) 
-                else self.infer_type(val_in)
+                [self.infer_type(x) for x in val_str.split(delim)]
+                if (delim in val_str)
+                else self.infer_type(val_str)
             )
 
         return rv
