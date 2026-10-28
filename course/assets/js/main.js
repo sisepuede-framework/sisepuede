@@ -3,6 +3,17 @@
 
   function qs(sel, root=document) { return root.querySelector(sel); }
 
+  // Lucide-style inline SVGs (24x24, 1.75 stroke, currentColor)
+  const SVG_ICONS = {
+    brain: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>',
+    globe: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>',
+    grid: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>',
+    target: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
+    dice: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8" cy="8" r="1" fill="currentColor"/><circle cx="16" cy="8" r="1" fill="currentColor"/><circle cx="12" cy="12" r="1" fill="currentColor"/><circle cx="8" cy="16" r="1" fill="currentColor"/><circle cx="16" cy="16" r="1" fill="currentColor"/></svg>',
+    sigma: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 7V5H6l6 7-6 7h12v-2"/></svg>'
+  };
+  function svgIcon(name) { return SVG_ICONS[name] || ''; }
+
   function renderHome() {
     const modules = window.COURSE_DATA.modules;
     const featured = modules.slice(0, 6);
@@ -41,12 +52,12 @@
           </div>
           <div class="feature-grid">
             ${[
-              ['🧠','features.f1.t','features.f1.d'],
-              ['🌍','features.f2.t','features.f2.d'],
-              ['📐','features.f3.t','features.f3.d'],
-              ['🎯','features.f4.t','features.f4.d'],
-              ['🎲','features.f5.t','features.f5.d'],
-              ['∑','features.f6.t','features.f6.d']
+              [svgIcon('brain'),'features.f1.t','features.f1.d'],
+              [svgIcon('globe'),'features.f2.t','features.f2.d'],
+              [svgIcon('grid'),'features.f3.t','features.f3.d'],
+              [svgIcon('target'),'features.f4.t','features.f4.d'],
+              [svgIcon('dice'),'features.f5.t','features.f5.d'],
+              [svgIcon('sigma'),'features.f6.t','features.f6.d']
             ].map(([icon, kt, kd]) => `
               <div class="feature">
                 <div class="icon">${icon}</div>

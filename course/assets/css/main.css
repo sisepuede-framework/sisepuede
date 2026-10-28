@@ -1,24 +1,33 @@
 :root {
-  --brand-900:#0B3D2E;
-  --brand-700:#145A3A;
-  --brand-500:#1F7A4E;
-  --brand-300:#57B489;
-  --brand-100:#E4F3EB;
-  --accent:#F2A65A;
-  --accent-dark:#C07135;
-  --ink-900:#101828;
-  --ink-700:#344054;
-  --ink-500:#667085;
-  --ink-300:#D0D5DD;
-  --ink-200:#EAECF0;
-  --ink-100:#F2F4F7;
-  --bg:#FBFCFB;
+  /* Organic Biophilic palette tuned for SISEPUEDE */
+  --brand-900:#064E3B;   /* dark forest */
+  --brand-700:#047857;   /* deep green */
+  --brand-500:#059669;   /* nature primary */
+  --brand-300:#10B981;   /* emerald */
+  --brand-200:#A7F3D0;   /* mint */
+  --brand-100:#D1FAE5;   /* leaf wash */
+  --brand-50:#ECFDF5;    /* page tint */
+  --accent:#D97706;      /* solar amber (WCAG-safe accent) */
+  --accent-dark:#B45309;
+  --ink-900:#0F172A;
+  --ink-700:#334155;
+  --ink-500:#64748B;
+  --ink-300:#CBD5E1;
+  --ink-200:#E2E8F0;
+  --ink-100:#F1F5F9;
+  --bg:#FBFEFC;
   --white:#FFFFFF;
+  /* Sector accent tokens (from attribute_subsector.csv) */
+  --sector-afolu:#31A354;
+  --sector-ce:#AD494A;
+  --sector-en:#5254A3;
+  --sector-ippu:#CE6DBD;
+  --sector-se:#636363;
   --radius:14px;
   --radius-sm:8px;
-  --shadow-sm:0 1px 2px rgba(16,24,40,.06), 0 1px 3px rgba(16,24,40,.08);
-  --shadow-md:0 4px 8px -2px rgba(16,24,40,.08), 0 2px 4px -2px rgba(16,24,40,.04);
-  --shadow-lg:0 12px 24px -4px rgba(16,24,40,.12), 0 4px 8px -2px rgba(16,24,40,.06);
+  --shadow-sm:0 1px 2px rgba(15,23,42,.06), 0 1px 3px rgba(15,23,42,.08);
+  --shadow-md:0 4px 8px -2px rgba(15,23,42,.08), 0 2px 4px -2px rgba(15,23,42,.04);
+  --shadow-lg:0 12px 24px -4px rgba(15,23,42,.12), 0 4px 8px -2px rgba(15,23,42,.06);
 }
 
 * { box-sizing: border-box; }
@@ -146,8 +155,9 @@ section.section.alt { background: var(--white); border-top: 1px solid var(--ink-
 .feature .icon {
   display: grid; place-items: center; width: 46px; height: 46px;
   border-radius: 12px; background: var(--brand-100); color: var(--brand-700);
-  font-size: 22px; margin-bottom: 16px;
+  margin-bottom: 16px;
 }
+.feature .icon svg { width: 24px; height: 24px; }
 .feature h3 { margin: 0 0 8px; font-size: 17px; }
 .feature p { color: var(--ink-500); margin: 0; font-size: 14px; }
 
